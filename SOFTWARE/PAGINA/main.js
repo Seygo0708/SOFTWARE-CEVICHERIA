@@ -1,305 +1,448 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- DATOS SIMULADOS ---
-    const usuarios = [
-        { username: 'admin', password: '123', rol: 'ADMINISTRADOR', nombre: 'Admin Principal' }
-    ];
-
-    // Datos simulados para la pantalla de Gestión de Usuarios
-    const listaUsuariosDB = [
-        { id: 1, nombre: 'Admin Principal', usuario: 'admin', rol: 'ADMINISTRADOR', estado: 'Activo' },
-        { id: 2, nombre: 'Juan Pérez', usuario: 'juanp', rol: 'CAJERO', estado: 'Activo' },
-        { id: 3, nombre: 'Maria Cocina', usuario: 'maria', rol: 'COCINA', estado: 'Inactivo' }
-    ];
-
-    // Datos simulados para la pantalla de Gestión de Clientes
-    const listaClientesDB = [
-        { id: 1, doc: '70112233', nombre: 'Carlos Ruiz', telefono: '999-888-777', direccion: 'Av. Larco 123' },
-        { id: 2, doc: '10203040', nombre: 'Empresa SAC', telefono: '01-222-3333', direccion: 'Jr. Unión 456' },
-        { id: 3, doc: '45456677', nombre: 'Ana Gomez', telefono: '987-654-321', direccion: 'Urb. Los Pinos' }
-    ];
-
-    // Elementos del DOM
+    // --- VARIABLES Y ELEMENTOS ---
     const loginSection = document.getElementById('loginSection');
     const wrapper = document.getElementById('wrapper');
     const loginForm = document.getElementById('loginForm');
     const contenidoPrincipal = document.getElementById('contenido-principal');
     const pageTitle = document.getElementById('pageTitle');
     const menuToggle = document.getElementById('menu-toggle');
-    const sidebarWrapper = document.getElementById('sidebar-wrapper');
     const wrapperDiv = document.getElementById('wrapper');
     const btnLogout = document.getElementById('btn-logout');
 
-    // Inicialización: Ocultar dashboard, mostrar fecha
-    wrapper.style.display = 'none';
-    document.getElementById('fecha-actual').textContent = new Date().toLocaleDateString('es-PE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    // Carrito de ventas (POS)
+    let carritoPOS = [];
+    let metodoPago = 'Efectivo';
 
-    // --- LOGICA DE LOGIN ---
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const user = document.getElementById('username').value;
-        const pass = document.getElementById('password').value;
+    // Ocultar dashboard al inicio
+    if(wrapper) wrapper.style.display = 'none';
+    if(document.getElementById('fecha-actual')){
+        document.getElementById('fecha-actual').textContent = new Date().toLocaleDateString('es-PE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
 
-        const foundUser = usuarios.find(u => u.username === user && u.password === pass);
+    // --- 1. LÓGICA DE LOGIN REAL (CONECTADA A BASE DE DATOS) ---
+    if(loginForm){
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener datos del formulario
+            const user = document.getElementById('username').value.trim(); // .trim() quita espacios accidentales
+            const pass = document.getElementById('password').value.trim();
 
-        if (foundUser) {
-            loginSection.style.display = 'none';
-            wrapper.style.display = 'flex'; // Mostrar layout flex
-            loadScreen('dashboard'); // Cargar dashboard por defecto
+            console.log("Intentando ingresar con:", user); // Para depurar en consola (F12)
+
+            // Conectar con PHP
+            fetch('backend.php?action=login', {
+                method: 'POST',
+                body: JSON.stringify({ username: user, password: pass }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .then(response => {
+                if(!response.ok) throw new Error("Error en la conexión con el servidor");
+                return response.json();
+            })
+            .then(data => {
+                console.log("Respuesta del servidor:", data);
+                
+                if (data.success) {
+                    // SI EL LOGIN ES CORRECTO:
+                    loginSection.style.display = 'none';
+                    wrapper.style.display = 'flex';
+                    // Guardar sesión temporalmente
+                    sessionStorage.setItem('usuario_actual', JSON.stringify(data.user));
+
+                    // Aplicar permisos según rol
+                    aplicarPermisos(data.user.rol || 'CAJERO');
+
+                    // Cargar pantalla inicial según rol
+                    if ((data.user.rol || '').toUpperCase() === 'CLIENTE') {
+                        loadScreen('pos');
+                    } else {
+                        loadScreen('dashboard');
+                    }
+                } else {
+                    // SI LA CONTRASEÑA ES INCORRECTA:
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('No se pudo conectar con la base de datos. \n\nVerifica:\n1. Que XAMPP (Apache y MySQL) esté encendido.\n2. Que estés abriendo esto desde "localhost", no como archivo.');
+            });
+        });
+    }
+
+    // --- Permisos por rol ---
+    function aplicarPermisos(rol) {
+        const r = (rol || '').toUpperCase();
+
+        const elUsuarios   = document.getElementById('menu-usuarios');
+        const elClientes   = document.getElementById('menu-clientes');
+        const elProductos  = document.getElementById('menu-productos');
+        const elVentas     = document.getElementById('menu-ventas');
+        const elConfig     = document.getElementById('menu-config');
+
+        if (r === 'CLIENTE') {
+            // El cliente solo ve Dashboard simple y POS / notificaciones, NO gestión
+            if (elUsuarios)  elUsuarios.style.display = 'none';
+            if (elClientes)  elClientes.style.display = 'none';
+            if (elProductos) elProductos.style.display = 'none';
+            if (elVentas)    elVentas.style.display = 'none';
+            if (elConfig)    elConfig.style.display = 'none';
         } else {
-            alert('Credenciales incorrectas');
+            // CAJERO / ADMIN: ven todo el menú
+            [elUsuarios, elClientes, elProductos, elVentas, elConfig].forEach(el => {
+                if (el) {
+                    el.style.display = '';
+                    el.classList.remove('disabled');
+                }
+            });
         }
+    }
+
+    // --- 2. LÓGICA DEL MENÚ LATERAL ---
+    if(menuToggle){
+        menuToggle.addEventListener('click', function() {
+            wrapperDiv.classList.toggle('toggled');
+        });
+    }
+
+    // Botón Cerrar Sesión
+    if(btnLogout){
+        btnLogout.addEventListener('click', function() {
+            wrapper.style.display = 'none';
+            loginSection.style.display = 'flex';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            carritoPOS = [];
+        });
+    }
+
+    // Links del menú
+    const links = ['dashboard', 'pos', 'usuarios', 'clientes'];
+    links.forEach(link => {
+        const el = document.getElementById(`menu-${link}`);
+        if(el) el.addEventListener('click', (e) => {
+            e.preventDefault(); // Evitar salto de página
+            loadScreen(link);
+        });
     });
 
-    // --- LOGICA DE SIDEBAR ---
-    menuToggle.addEventListener('click', function() {
-        wrapperDiv.classList.toggle('toggled');
-    });
-
-    btnLogout.addEventListener('click', function() {
-        wrapper.style.display = 'none';
-        loginSection.style.display = 'flex';
-        document.getElementById('username').value = '';
-        document.getElementById('password').value = '';
-    });
-
-    // Manejo de clicks en menú (Delegación simple o directa)
-    document.getElementById('menu-dashboard').addEventListener('click', () => loadScreen('dashboard'));
-    document.getElementById('menu-pos').addEventListener('click', () => loadScreen('pos'));
-    document.getElementById('menu-usuarios').addEventListener('click', () => loadScreen('usuarios'));
-    document.getElementById('menu-clientes').addEventListener('click', () => loadScreen('clientes'));
-
-    // --- FUNCIÓN CENTRAL DE NAVEGACIÓN ---
-    window.loadScreen = function(screenName) {
-        // Reset active classes
+    // --- 3. CARGADOR DE PANTALLAS (DASHBOARD, POS, ETC) ---
+    window.loadScreen = async function(screenName) {
+        // Quitar clase activa a todos
         document.querySelectorAll('.list-group-item').forEach(el => el.classList.remove('active'));
+        const activeLink = document.getElementById(`menu-${screenName}`);
+        if(activeLink) activeLink.classList.add('active');
         
-        // Animación simple de fade out/in
+        // Efecto visual
         contenidoPrincipal.style.opacity = '0';
         
-        setTimeout(() => {
-            switch(screenName) {
-                case 'dashboard':
-                    document.getElementById('menu-dashboard').classList.add('active');
-                    pageTitle.textContent = 'Dashboard General';
-                    contenidoPrincipal.innerHTML = `
+        setTimeout(async () => {
+            let htmlContent = '';
+
+            try {
+                switch(screenName) {
+                    // --- PANTALLA DASHBOARD ---
+                    case 'dashboard':
+                        pageTitle.textContent = 'Dashboard General';
+                        const resDash = await fetch('backend.php?action=get_dashboard');
+                        const dataDash = await resDash.json();
+                        
+                        htmlContent = `
                         <div class="row g-3">
                             <div class="col-md-3">
                                 <div class="card p-3 shadow-sm border-0 d-flex flex-row align-items-center justify-content-between">
-                                    <div>
-                                        <h5 class="text-muted fw-normal mt-0">Ventas Hoy</h5>
-                                        <h3 class="fw-bold">S/ 1,250.00</h3>
-                                    </div>
-                                    <div class="p-3 bg-light rounded-circle">
-                                        <i class="bi bi-cash-coin fs-1 text-success"></i>
-                                    </div>
+                                    <div><h5 class="text-muted fw-normal mt-0">Ventas Hoy</h5><h3 class="fw-bold">S/ ${parseFloat(dataDash.ventas_hoy || 0).toFixed(2)}</h3></div>
+                                    <div class="p-3 bg-light rounded-circle"><i class="bi bi-cash-coin fs-1 text-success"></i></div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card p-3 shadow-sm border-0 d-flex flex-row align-items-center justify-content-between">
-                                    <div>
-                                        <h5 class="text-muted fw-normal mt-0">Pedidos</h5>
-                                        <h3 class="fw-bold">24</h3>
-                                    </div>
-                                    <div class="p-3 bg-light rounded-circle">
-                                        <i class="bi bi-basket fs-1 text-primary"></i>
-                                    </div>
+                                    <div><h5 class="text-muted fw-normal mt-0">Pedidos</h5><h3 class="fw-bold">${dataDash.pedidos_hoy || 0}</h3></div>
+                                    <div class="p-3 bg-light rounded-circle"><i class="bi bi-basket fs-1 text-primary"></i></div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card p-3 shadow-sm border-0 d-flex flex-row align-items-center justify-content-between">
-                                    <div>
-                                        <h5 class="text-muted fw-normal mt-0">Clientes</h5>
-                                        <h3 class="fw-bold">12</h3>
-                                    </div>
-                                    <div class="p-3 bg-light rounded-circle">
-                                        <i class="bi bi-people fs-1 text-warning"></i>
-                                    </div>
+                                    <div><h5 class="text-muted fw-normal mt-0">Clientes</h5><h3 class="fw-bold">${dataDash.total_clientes || 0}</h3></div>
+                                    <div class="p-3 bg-light rounded-circle"><i class="bi bi-people fs-1 text-warning"></i></div>
                                 </div>
                             </div>
-                        </div>
-                    `;
-                    break;
+                        </div>`;
+                        break;
 
-                case 'pos':
-                    document.getElementById('menu-pos').classList.add('active');
-                    pageTitle.textContent = 'Punto de Venta';
-                    contenidoPrincipal.innerHTML = `
+                    // --- PANTALLA POS ---
+                    case 'pos':
+                        pageTitle.textContent = 'Punto de Venta';
+                        const resProd = await fetch('backend.php?action=get_productos');
+                        const productos = await resProd.json();
+                        
+                        let productosHTML = '';
+                        if(productos.length > 0) {
+                            productos.forEach(p => {
+                                productosHTML += renderProductoCard(p.id_producto, p.nombre, parseFloat(p.precio));
+                            });
+                        } else {
+                            productosHTML = '<div class="col-12 text-center text-muted">No hay productos activos</div>';
+                        }
+
+                        htmlContent = `
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
                                     <input type="text" class="form-control border-start-0" placeholder="Buscar producto...">
                                 </div>
-                                <div class="row g-3" id="productos-container">
-                                    <!-- Productos de ejemplo -->
-                                    ${renderProductoCard('Ceviche Clásico', 35.00, 'bi-cloud-haze2')}
-                                    ${renderProductoCard('Jalea Mixta', 45.00, 'bi-cloud-rain')}
-                                    ${renderProductoCard('Arroz con Mariscos', 38.00, 'bi-fire')}
-                                    ${renderProductoCard('Chicha Morada Jarra', 15.00, 'bi-cup-straw')}
-                                    ${renderProductoCard('Causa Limeña', 20.00, 'bi-layers')}
-                                    ${renderProductoCard('Leche de Tigre', 12.00, 'bi-lightning')}
-                                </div>
+                                <div class="row g-3" id="productos-container">${productosHTML}</div>
                             </div>
                             <div class="col-md-4">
                                 <div class="card shadow-sm border-0 ticket-panel">
-                                    <div class="card-header bg-white border-bottom fw-bold">Ticket de Venta #00123</div>
-                                    <div class="card-body">
-                                        <div class="text-center text-muted py-5">
-                                            <i class="bi bi-cart-x display-4"></i>
-                                            <p class="mt-2">Carrito vacío</p>
-                                        </div>
+                                    <div class="card-header bg-primary text-white text-center fw-bold">PEDIDO ACTUAL</div>
+                                    <div class="card-body p-0" id="pos-carrito-body">
+                                        <div class="text-center text-muted py-5"><i class="bi bi-cart-x display-4"></i><p class="mt-2">Carrito vacío</p></div>
                                     </div>
                                     <div class="card-footer bg-white border-top">
-                                        <div class="d-flex justify-content-between fw-bold fs-5">
-                                            <span>Total:</span>
-                                            <span>S/ 0.00</span>
+                                        <div class="d-flex justify-content-between small mb-1">
+                                            <span>Subtotal:</span>
+                                            <span id="pos-subtotal">S/ 0.00</span>
                                         </div>
-                                        <button class="btn btn-primary w-100 mt-3">COBRAR</button>
+                                        <div class="d-flex justify-content-between small mb-2">
+                                            <span>IGV (18%):</span>
+                                            <span id="pos-igv">S/ 0.00</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between fw-bold fs-5 border-top pt-2">
+                                            <span>TOTAL:</span>
+                                            <span id="pos-total">S/ 0.00</span>
+                                        </div>
+
+                                        <div class="btn-group w-100 mt-3" role="group">
+                                            <button type="button" class="btn btn-primary btn-sm active" onclick="seleccionarPago('Efectivo', this)">Efectivo</button>
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="seleccionarPago('Tarjeta', this)">Tarjeta</button>
+                                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="seleccionarPago('Yape', this)">Yape</button>
+                                        </div>
+
+                                        <button class="btn btn-primary w-100 mt-3" onclick="realizarVenta()">REGISTRAR VENTA</button>
+                                        <button class="btn btn-outline-danger w-100 mt-2" onclick="cancelarCarrito()">CANCELAR</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    `;
-                    break;
+                        </div>`;
+                        break;
 
-                case 'usuarios':
-                    document.getElementById('menu-usuarios').classList.add('active');
-                    pageTitle.textContent = 'Gestión de Usuarios';
+                    // --- PANTALLA USUARIOS ---
+                    case 'usuarios':
+                        pageTitle.textContent = 'Gestión de Usuarios';
+                        const resUser = await fetch('backend.php?action=get_usuarios');
+                        const listUsers = await resUser.json();
+                        
+                        let htmlUsers = '';
+                        listUsers.forEach(u => {
+                            let badge = u.estado === 'Activo' ? 'bg-success' : 'bg-secondary';
+                            htmlUsers += `<tr><td>${u.id_usuario}</td><td><div class="fw-bold">${u.nombres}</div><small class="text-muted">@${u.username}</small></td><td>${u.rol}</td><td><span class="badge ${badge}">${u.estado}</span></td></tr>`;
+                        });
+
+                        htmlContent = `
+                        <div class="card shadow-sm border-0">
+                            <div class="card-header bg-white py-3"><h5 class="mb-0 text-primary">Listado de Personal</h5></div>
+                            <div class="card-body p-0 table-responsive">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="bg-light"><tr><th class="ps-4">ID</th><th>Usuario</th><th>Rol</th><th>Estado</th></tr></thead>
+                                    <tbody>${htmlUsers}</tbody>
+                                </table>
+                            </div>
+                        </div>`;
+                        break;
                     
-                    // Generar filas de tabla dinámicamente
-                    let htmlUsuarios = '';
-                    listaUsuariosDB.forEach(u => {
-                        let badgeClass = u.estado === 'Activo' ? 'bg-success' : 'bg-secondary';
-                        htmlUsuarios += `
-                            <tr>
-                                <td>${u.id}</td>
-                                <td><div class="fw-bold">${u.nombre}</div><small class="text-muted">@${u.usuario}</small></td>
-                                <td>${u.rol}</td>
-                                <td><span class="badge ${badgeClass}">${u.estado}</span></td>
-                                <td>
-                                    <button class="btn btn-sm btn-outline-primary me-1"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-                        `;
-                    });
-
-                    contenidoPrincipal.innerHTML = `
-                        <div class="card shadow-sm border-0">
-                            <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0 text-primary">Listado de Personal</h5>
-                                <button class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-2"></i>Nuevo Usuario</button>
-                            </div>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table table-hover align-middle mb-0">
-                                        <thead class="bg-light">
-                                            <tr>
-                                                <th class="ps-4">#</th>
-                                                <th>Nombre / Usuario</th>
-                                                <th>Rol</th>
-                                                <th>Estado</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            ${htmlUsuarios}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="card-footer bg-white py-3">
-                                <small class="text-muted">Mostrando ${listaUsuariosDB.length} usuarios registrados</small>
-                            </div>
-                        </div>
-                    `;
-                    break;
-
-                case 'clientes':
-                    document.getElementById('menu-clientes').classList.add('active');
-                    pageTitle.textContent = 'Gestión de Clientes';
-
-                    // Generar filas de tabla dinámicamente
-                    let htmlClientes = '';
-                    listaClientesDB.forEach(c => {
-                        htmlClientes += `
-                            <tr>
-                                <td>${c.id}</td>
-                                <td><span class="fw-bold text-dark">${c.doc}</span></td>
-                                <td>${c.nombre}</td>
-                                <td>${c.telefono}</td>
-                                <td><small class="text-muted">${c.direccion}</small></td>
-                                <td>
-                                    <button class="btn btn-sm btn-outline-info me-1"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
-                                </td>
-                            </tr>
-                        `;
-                    });
-
-                    contenidoPrincipal.innerHTML = `
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
-                                    <input type="text" class="form-control border-start-0" placeholder="Buscar por DNI o Nombre...">
-                                </div>
-                            </div>
-                            <div class="col-md-6 text-end">
-                                <button class="btn btn-success"><i class="bi bi-person-plus me-2"></i>Nuevo Cliente</button>
-                            </div>
-                        </div>
-
-                        <div class="card shadow-sm border-0">
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table table-hover align-middle mb-0">
-                                        <thead class="bg-light">
-                                            <tr>
-                                                <th class="ps-4">ID</th>
-                                                <th>Documento</th>
-                                                <th>Razón Social / Nombre</th>
-                                                <th>Teléfono</th>
-                                                <th>Dirección</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            ${htmlClientes}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                
-                default:
-                    contenidoPrincipal.innerHTML = `
-                        <div class="row mt-4">
-                            <div class="col-12 text-center text-muted py-5">
-                                <i class="bi bi-arrow-up-circle display-4"></i>
-                                <p class="mt-3">Seleccione una opción del menú para comenzar.</p>
-                            </div>
-                        </div>
-                    `;
+                    // --- PANTALLA CLIENTES ---
+                    case 'clientes':
+                        pageTitle.textContent = 'Gestión de Clientes';
+                        const resCli = await fetch('backend.php?action=get_clientes');
+                        const listCli = await resCli.json();
+                        
+                        let htmlCli = '';
+                        listCli.forEach(c => {
+                            htmlCli += `<tr><td>${c.id_cliente}</td><td><span class="fw-bold">${c.nombre}</span></td><td>${c.telefono}</td><td>${c.direccion}</td></tr>`;
+                        });
+                        
+                        htmlContent = `<div class="card shadow-sm border-0"><div class="card-body p-0 table-responsive"><table class="table table-hover align-middle mb-0"><thead class="bg-light"><tr><th class="ps-4">ID</th><th>Nombre</th><th>Teléfono</th><th>Dirección</th></tr></thead><tbody>${htmlCli}</tbody></table></div></div>`;
+                        break;
+                }
+            } catch (error) {
+                console.error("Error cargando pantalla:", error);
+                htmlContent = `<div class="alert alert-danger">Error de conexión: No se pudo cargar la información. Revisa que backend.php esté funcionando.</div>`;
             }
+
+            contenidoPrincipal.innerHTML = htmlContent;
             contenidoPrincipal.style.opacity = '1';
+            
+            // Si estamos en POS y hay cosas en carrito, restaurar vista
+            if(screenName === 'pos' && carritoPOS.length > 0) actualizarVistaCarrito();
+
         }, 150);
     };
 
-    // Helper para generar tarjetas de producto
-    function renderProductoCard(nombre, precio, icono) {
+    // --- FUNCIONES DEL POS (GLOBALES) ---
+    window.renderProductoCard = function(id, nombre, precio) {
         return `
         <div class="col-md-4 col-sm-6">
             <div class="card product-grid-card h-100 border-0 shadow-sm p-2 text-center">
-                <i class="bi ${icono} display-5 text-primary mb-2 mt-2"></i>
+                <i class="bi bi-basket display-5 text-primary mb-2 mt-2"></i>
                 <h6 class="card-title fw-bold mb-1">${nombre}</h6>
                 <p class="text-success fw-bold m-0">S/ ${precio.toFixed(2)}</p>
-                <button class="btn btn-sm btn-outline-primary mt-2 rounded-pill"><i class="bi bi-plus"></i> Agregar</button>
+                <button class="btn btn-sm btn-outline-primary mt-2 rounded-pill" onclick="agregarAlCarrito(${id}, '${nombre}', ${precio})">
+                    <i class="bi bi-plus"></i> Agregar
+                </button>
             </div>
         </div>`;
-    }
+    };
+
+    window.agregarAlCarrito = function(id, nombre, precio) {
+        // Si el producto ya existe en el carrito, incrementar cantidad
+        const existente = carritoPOS.find(p => p.id === id);
+        if (existente) {
+            existente.cantidad += 1;
+        } else {
+            carritoPOS.push({ id, nombre, precio, cantidad: 1 });
+        }
+        actualizarVistaCarrito();
+    };
+
+    window.actualizarVistaCarrito = function() {
+        const divCarrito = document.getElementById('pos-carrito-body');
+        const spanSubtotal = document.getElementById('pos-subtotal');
+        const spanIgv = document.getElementById('pos-igv');
+        const spanTotal = document.getElementById('pos-total');
+        
+        if (carritoPOS.length === 0) {
+            divCarrito.innerHTML = `<div class="text-center text-muted py-5"><i class="bi bi-cart-x display-4"></i><p class="mt-2">Carrito vacío</p></div>`;
+            if(spanSubtotal) spanSubtotal.textContent = 'S/ 0.00';
+            if(spanIgv) spanIgv.textContent = 'S/ 0.00';
+            if(spanTotal) spanTotal.textContent = 'S/ 0.00';
+            return;
+        }
+
+        let html = '<ul class="list-group list-group-flush">';
+        let subtotal = 0;
+        carritoPOS.forEach((prod, index) => {
+            const linea = prod.precio * prod.cantidad;
+            subtotal += linea;
+            html += `
+                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                    <div>
+                        <small class="fw-bold">${prod.cantidad}x ${prod.nombre}</small>
+                        <div class="text-muted" style="font-size:0.8rem">S/ ${prod.precio.toFixed(2)} c/u</div>
+                    </div>
+                    <div class="text-end">
+                        <div class="fw-bold">S/ ${linea.toFixed(2)}</div>
+                        <button class="btn btn-sm text-danger mt-1" onclick="eliminarDelCarrito(${index})"><i class="bi bi-x-circle"></i></button>
+                    </div>
+                </li>`;
+        });
+        html += '</ul>';
+        divCarrito.innerHTML = html;
+
+        const igv = subtotal * 0.18;
+        const total = subtotal + igv;
+        if (spanSubtotal) spanSubtotal.textContent = 'S/ ' + subtotal.toFixed(2);
+        if (spanIgv) spanIgv.textContent = 'S/ ' + igv.toFixed(2);
+        if (spanTotal) spanTotal.textContent = 'S/ ' + total.toFixed(2);
+    };
+
+    window.eliminarDelCarrito = function(index) {
+        carritoPOS.splice(index, 1);
+        actualizarVistaCarrito();
+    };
+
+    window.cancelarCarrito = function() {
+        carritoPOS = [];
+        actualizarVistaCarrito();
+    };
+
+    window.seleccionarPago = function(metodo, btn) {
+        metodoPago = metodo;
+        if (!btn || !btn.parentElement) return;
+        const grupo = btn.parentElement.querySelectorAll('button');
+        grupo.forEach(b => {
+            b.classList.remove('btn-primary', 'active');
+            b.classList.add('btn-outline-primary');
+        });
+        btn.classList.remove('btn-outline-primary');
+        btn.classList.add('btn-primary', 'active');
+    };
+
+    window.realizarVenta = function() {
+        if(carritoPOS.length === 0) return alert("El carrito está vacío");
+
+        const subtotal = carritoPOS.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+        const igv = subtotal * 0.18;
+        const totalVenta = subtotal + igv;
+        
+        fetch('backend.php?action=guardar_venta', {
+            method: 'POST',
+            body: JSON.stringify({ total: totalVenta, productos: carritoPOS, metodo_pago: metodoPago }),
+            headers: {'Content-Type': 'application/json'}
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.success) {
+                alert("¡Venta registrada con éxito!");
+
+                // Generar boleta imprimible básica
+                const win = window.open('', '_blank');
+                let html = `<!DOCTYPE html><html><head><title>Comprobante de Venta</title>
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+                    <style>
+                        body{font-family: 'Courier New', monospace; padding:20px;}
+                        .boleta-paper{max-width:350px;margin:0 auto;border:1px solid #ddd;padding:16px;}
+                        .boleta-paper h5{text-align:center;margin-bottom:10px;}
+                        table{width:100%;font-size:12px;}
+                        th,td{padding:2px 0;}
+                        .totales td{font-weight:bold;}
+                    </style>
+                </head><body>`;
+
+                html += `<div class="boleta-paper">
+                    <h5>CEVICHERÍA "EL BUEN SABOR"</h5>
+                    <p style="font-size:11px;">Comprobante de Venta<br>${new Date().toLocaleString('es-PE')}</p>
+                    <p style="font-size:11px;">Forma de pago: ${metodoPago}</p>
+
+                    <hr/>
+                    <table>
+                        <thead><tr><th>DESC</th><th class="text-end">CANT</th><th class="text-end">IMP</th></tr></thead>
+                        <tbody>`;
+
+                carritoPOS.forEach(p => {
+                    const linea = p.precio * p.cantidad;
+                    html += `<tr><td>${p.nombre}</td><td class="text-end">${p.cantidad}</td><td class="text-end">${linea.toFixed(2)}</td></tr>`;
+                });
+
+                html += `</tbody>
+                        <tfoot class="totales">
+                            <tr><td colspan="2">SUBTOTAL</td><td class="text-end">${subtotal.toFixed(2)}</td></tr>
+                            <tr><td colspan="2">IGV (18%)</td><td class="text-end">${igv.toFixed(2)}</td></tr>
+                            <tr><td colspan="2">TOTAL</td><td class="text-end">${totalVenta.toFixed(2)}</td></tr>
+                        </tfoot>
+                    </table>
+                    <p class="text-center mt-3" style="font-size:11px;">¡GRACIAS POR SU PREFERENCIA!</p>
+                </div>`;
+
+                html += `<script>window.print();<\/script></body></html>`;
+                win.document.write(html);
+                win.document.close();
+
+                carritoPOS = [];
+                actualizarVistaCarrito();
+            } else {
+                alert("Error al guardar: " + data.error);
+            }
+        })
+        .catch(err => alert("Error de conexión al guardar venta"));
+    };
+
+    fetch('backend.php?action=get_clientes')
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error('Error:', err));
 
 });

@@ -1,0 +1,211 @@
+-- ==========================================================
+-- SCRIPT MAESTRO: CEVICHERIA EL BUEN SABOR
+-- ==========================================================
+
+-- 1. LIMPIEZA TOTAL (Borramos tablas viejas si existen)
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS detalle_venta;
+DROP TABLE IF EXISTS venta;
+DROP TABLE IF EXISTS inventario;
+DROP TABLE IF EXISTS producto;
+DROP TABLE IF EXISTS cliente;
+DROP TABLE IF EXISTS usuario;
+DROP TABLE IF EXISTS categoria;
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- ==========================================================
+-- 2. CREACIÓN DE TABLAS (Estructura Limpia y Automática)
+-- ==========================================================
+
+-- Tabla CATEGORIA
+CREATE TABLE categoria (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    descripcion TEXT,
+    estado VARCHAR(20) DEFAULT 'Activo'
+);
+
+-- Tabla USUARIO (Sin columnas raras, estructura estándar)
+CREATE TABLE usuario (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL, -- Corregido: 'username' es lo estándar
+    password VARCHAR(100) NOT NULL,
+    nombres VARCHAR(100),
+    apellidos VARCHAR(100),
+    rol VARCHAR(30),
+    estado VARCHAR(20) DEFAULT 'Activo',
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabla CLIENTE
+CREATE TABLE cliente (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    documento VARCHAR(20),
+    nombre VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20),
+    direccion VARCHAR(200),
+    estado TINYINT DEFAULT 1
+);
+
+-- Tabla PRODUCTO (Con Precio, Stock e Imagen obligatorios)
+CREATE TABLE producto (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    id_categoria INT NOT NULL,
+    codigo VARCHAR(20),
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    stock INT DEFAULT 0,
+    imagen VARCHAR(100),
+    estado VARCHAR(20) DEFAULT 'Activo',
+    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
+);
+
+-- Tabla INVENTARIO
+CREATE TABLE inventario (
+    id_inventario INT AUTO_INCREMENT PRIMARY KEY,
+    id_producto INT NOT NULL,
+    cantidad_entrada INT DEFAULT 0,
+    cantidad_salida INT DEFAULT 0,
+    stock_actual INT DEFAULT 0,
+    fecha_actualizacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_producto) REFERENCES producto(id_producto)
+);
+
+-- Tabla VENTA
+CREATE TABLE venta (
+    id_venta INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    id_usuario INT NOT NULL,
+    tipo_comprobante VARCHAR(20),
+    serie VARCHAR(10),
+    correlativo VARCHAR(10),
+    fecha_venta DATETIME DEFAULT CURRENT_TIMESTAMP,
+    impuesto DECIMAL(10,2) DEFAULT 0.00,
+    total DECIMAL(10,2) NOT NULL,
+    estado VARCHAR(20) DEFAULT 'Completado',
+    FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+);
+
+-- Tabla DETALLE_VENTA
+CREATE TABLE detalle_venta (
+    id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+    id_venta INT NOT NULL,
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_venta) REFERENCES venta(id_venta),
+    FOREIGN KEY (id_producto) REFERENCES producto(id_producto)
+);
+
+-- ==========================================================
+-- 3. INSERCIÓN DE DATOS (15 Registros por tabla)
+-- ==========================================================
+
+-- DATOS CATEGORIA
+INSERT INTO categoria (nombre, descripcion) VALUES
+('Entradas Frias', 'Causas y tiraditos'),
+('Entradas Calientes', 'Chicharrones y conchitas'),
+('Ceviches', 'Clasicos y mixtos'),
+('Tiraditos', 'En cremas de aji'),
+('Chicharrones', 'Pescado y mariscos'),
+('Arroces', 'Chaufas y mariscos'),
+('Sudados', 'Al vapor'),
+('Parihuelas', 'Sopas concentradas'),
+('Pastas', 'Fetuccinis marinos'),
+('Guarniciones', 'Camote, choclo, yuca'),
+('Bebidas', 'Chichas y gaseosas'),
+('Cervezas', 'Pilsen y Cusqueña'),
+('Cocteles', 'Pisco Sour'),
+('Vinos', 'Blancos y tintos'),
+('Postres', 'Suspiro a la limeña');
+
+-- DATOS USUARIO
+INSERT INTO usuario (username, password, nombres, apellidos, rol) VALUES
+('admin', '123', 'Admin', 'Principal', 'ADMINISTRADOR'),
+('juanp', '123', 'Juan', 'Perez', 'CAJERO'),
+('maria', '123', 'Maria', 'Cocina', 'COCINA'),
+('pedro', '123', 'Pedro', 'Mesero', 'MESERO'),
+('luis', '123', 'Luis', 'Ramirez', 'MESERO'),
+('ana', '123', 'Ana', 'Lopez', 'CAJERO'),
+('chef', '123', 'Gaston', 'Acurio', 'COCINA'),
+('jefe', '123', 'Roberto', 'Mamani', 'ADMINISTRADOR'),
+('mozo1', '123', 'Jorge', 'Chavez', 'MESERO'),
+('mozo2', '123', 'Lucia', 'Fernandez', 'MESERO'),
+('barman', '123', 'Miguel', 'Torres', 'BARMAN'),
+('segur', '123', 'Jose', 'Quispe', 'SEGURIDAD'),
+('limp', '123', 'Rosa', 'Huaman', 'LIMPIEZA'),
+('conta', '123', 'Elena', 'Vargas', 'CONTADOR'),
+('logis', '123', 'Raul', 'Salas', 'LOGISTICA');
+
+-- DATOS CLIENTE
+INSERT INTO cliente (nombre, telefono, direccion) VALUES
+('Cliente Generico', '000000', 'Tienda'),
+('Carlos Ruiz', '999111222', 'Av Larco'),
+('Empresa SAC', '01222333', 'San Isidro'),
+('Juan Gabriel', '999000111', 'Av. Mexico 100'),
+('Shakira Mebarak', '999222333', 'Calle Loba 45'),
+('Lionel Messi', '999101010', 'Rosario 123'),
+('Cristiano Ronaldo', '999777777', 'Madeira 77'),
+('Constructora S.A.', '01-444555', 'Zona Industrial'),
+('Banco Local', '01-222333', 'Centro Financiero'),
+('Maria La Del Barrio', '988777666', 'Callejon s/n'),
+('Don Ramon', '911222333', 'Vecindad 72'),
+('Bob Esponja', '900000001', 'Fondo de Bikini'),
+('Patricio Estrella', '900000002', 'Bajo una Piedra'),
+('Tony Stark', '999999999', 'Torre Avengers'),
+('Bruce Wayne', '988888888', 'Mansion Wayne');
+
+-- DATOS PRODUCTO
+INSERT INTO producto (id_categoria, codigo, nombre, descripcion, precio, stock, imagen) VALUES
+(3, 'CEV01', 'Ceviche Clasico', 'Pescado del dia', 35.00, 50, 'ceviche.jpg'),
+(3, 'CEV02', 'Ceviche Mixto', 'Con mariscos', 40.00, 45, 'mixto.jpg'),
+(3, 'CEV03', 'Ceviche Conchas', 'Negras de Tumbes', 45.00, 30, 'conchas.jpg'),
+(5, 'CHI01', 'Jalea Mixta', 'Fritura crocante', 45.00, 40, 'jalea.jpg'),
+(5, 'CHI02', 'Chicharron Pescado', 'Trozos fritos', 38.00, 50, 'chicharron.jpg'),
+(6, 'ARR01', 'Arroz con Mariscos', 'Cremoso', 42.00, 35, 'arroz.jpg'),
+(6, 'ARR02', 'Chaufa de Pescado', 'Al wok', 35.00, 40, 'chaufa.jpg'),
+(1, 'ENT01', 'Leche de Tigre', 'Copa clasica', 15.00, 60, 'leche.jpg'),
+(1, 'ENT02', 'Causa Langostinos', 'Rellena', 25.00, 25, 'causa.jpg'),
+(4, 'TIR01', 'Tiradito Aji', 'Laminas finas', 35.00, 30, 'tiradito.jpg'),
+(7, 'SUD01', 'Sudado Pescado', 'Con yuca', 38.00, 20, 'sudado.jpg'),
+(8, 'PAR01', 'Parihuela', 'Concentrado', 45.00, 20, 'parihuela.jpg'),
+(11, 'BEB01', 'Chicha Morada', 'Jarra 1L', 15.00, 100, 'chicha.jpg'),
+(11, 'BEB02', 'Limonada', 'Frozen', 12.00, 80, 'limonada.jpg'),
+(12, 'BEB03', 'Pilsen Callao', '650ml', 10.00, 200, 'pilsen.jpg');
+
+-- DATOS INVENTARIO
+INSERT INTO inventario (id_producto, cantidad_entrada, cantidad_salida, stock_actual) VALUES
+(1, 100, 50, 50), (2, 90, 45, 45), (3, 80, 40, 40),
+(4, 70, 35, 35), (5, 60, 0, 60), (6, 50, 25, 25),
+(7, 200, 100, 100), (8, 240, 120, 120), (9, 40, 20, 20),
+(10, 50, 25, 25), (11, 30, 15, 15), (12, 80, 40, 40),
+(13, 40, 20, 20), (14, 40, 0, 40), (15, 100, 0, 100);
+
+-- DATOS VENTA
+INSERT INTO venta (id_cliente, id_usuario, tipo_comprobante, serie, correlativo, total) VALUES
+(1, 1, 'Boleta', 'B001', '001', 35.00),
+(2, 2, 'Boleta', 'B001', '002', 75.00),
+(3, 1, 'Factura', 'F001', '001', 120.00),
+(1, 2, 'Boleta', 'B001', '003', 15.00),
+(2, 1, 'Boleta', 'B001', '004', 45.00),
+(3, 2, 'Factura', 'F001', '002', 200.00),
+(1, 1, 'Boleta', 'B001', '005', 10.00),
+(2, 2, 'Boleta', 'B001', '006', 35.00),
+(3, 1, 'Factura', 'F001', '003', 150.00),
+(1, 2, 'Boleta', 'B001', '007', 20.00),
+(2, 1, 'Boleta', 'B001', '008', 40.00),
+(3, 2, 'Factura', 'F001', '004', 300.00),
+(1, 1, 'Boleta', 'B001', '009', 25.00),
+(2, 2, 'Boleta', 'B001', '010', 80.00),
+(3, 1, 'Factura', 'F001', '005', 100.00);
+
+-- DATOS DETALLE_VENTA
+INSERT INTO detalle_venta (id_venta, id_producto, cantidad, precio_unitario, subtotal) VALUES
+(1, 1, 1, 35.00, 35.00), (2, 1, 1, 35.00, 35.00), (2, 2, 1, 40.00, 40.00),
+(3, 3, 2, 45.00, 90.00), (3, 7, 2, 15.00, 30.00), (4, 7, 1, 15.00, 15.00),
+(5, 3, 1, 45.00, 45.00), (6, 4, 2, 38.00, 76.00), (6, 8, 4, 10.00, 40.00),
+(7, 8, 1, 10.00, 10.00), (8, 1, 1, 35.00, 35.00), (9, 2, 2, 40.00, 80.00),
+(10, 6, 1, 20.00, 20.00), (11, 2, 1, 40.00, 40.00), (12, 5, 5, 15.00, 75.00);
