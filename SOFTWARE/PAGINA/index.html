@@ -28,92 +28,84 @@
                 <div class="mb-3">
                     <label class="form-label text-muted">Usuario</label>
                     <div class="input-group">
-                        <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
-                        <input type="text" class="form-control" id="username" placeholder="Ej: admin" value="admin" required>
+                        <span class="input-group-text bg-light border-end-0"><i class="bi bi-person text-primary"></i></span>
+                        <input type="text" class="form-control border-start-0 ps-0" id="username" placeholder="Ingrese usuario" required>
                     </div>
                 </div>
                 <div class="mb-4">
                     <label class="form-label text-muted">Contraseña</label>
                     <div class="input-group">
-                        <span class="input-group-text bg-white"><i class="bi bi-key"></i></span>
-                        <input type="password" class="form-control" id="password" placeholder="••••••" value="123" required>
+                        <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-primary"></i></span>
+                        <input type="password" class="form-control border-start-0 ps-0" id="password" placeholder="Ingrese contraseña" required>
                     </div>
                 </div>
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-lg">Ingresar</button>
-                </div>
-                <div id="loginError" class="alert alert-danger mt-3 d-none text-center" role="alert">
-                    Usuario o contraseña incorrectos
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm">INGRESAR</button>
+                <div class="text-center mt-3">
+                    <small class="text-muted">¿Olvidó su contraseña? Contacte al administrador.</small>
                 </div>
             </form>
-            <div class="text-center mt-3">
-                <small class="text-muted">Usuarios: admin/123</small>
-            </div>
         </div>
     </div>
 
-    <!-- ================= DASHBOARD ================= -->
-    <div id="appContainer" class="d-none">
-        <div class="d-flex" id="wrapper">
-            <!-- Sidebar -->
-            <div class="bg-white border-end" id="sidebar-wrapper">
-                <div class="sidebar-heading text-center py-4 text-primary fs-4 fw-bold border-bottom">
-                    <i class="bi bi-tsunami me-2"></i>El Buen Sabor
+    <!-- ================= DASHBOARD PRINCIPAL ================= -->
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white border-end" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+                <i class="bi bi-tsunami me-2"></i>El Buen Sabor
+            </div>
+            <div class="list-group list-group-flush my-3">
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active" id="menu-dashboard">
+                    <i class="bi bi-speedometer2 me-2"></i>Dashboard
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="menu-pos">
+                    <i class="bi bi-cart4 me-2"></i>Punto de Venta
+                </a>
+                
+                <!-- NUEVOS LINKS AGREGADOS -->
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="menu-usuarios">
+                    <i class="bi bi-people me-2"></i>Gestión Usuarios
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="menu-clientes">
+                    <i class="bi bi-person-badge me-2"></i>Gestión Clientes
+                </a>
+                <!-- FIN NUEVOS LINKS -->
+
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold disabled" id="menu-productos">
+                    <i class="bi bi-box-seam me-2"></i>Productos
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold disabled" id="menu-ventas">
+                    <i class="bi bi-receipt me-2"></i>Ventas
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold disabled" id="menu-config">
+                    <i class="bi bi-gear me-2"></i>Configuración
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold mt-3" id="btn-logout">
+                    <i class="bi bi-box-arrow-left me-2"></i>Cerrar Sesión
+                </a>
+            </div>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div id="page-content-wrapper" class="w-100">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4 py-3">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-list fs-3 me-3 cursor-pointer" id="menu-toggle"></i>
+                    <h4 class="m-0 text-primary fw-bold" id="pageTitle">Dashboard</h4>
                 </div>
                 
-                <div class="text-center py-3 border-bottom bg-light">
-                    <div class="mb-2"><i class="bi bi-person-circle fs-3 text-secondary"></i></div>
-                    <h6 class="m-0" id="sidebarUserName">Usuario</h6>
-                    <small class="text-muted" id="sidebarUserRole">Rol</small>
-                </div>
-
-                <div class="list-group list-group-flush my-3">
-                    <button class="list-group-item list-group-item-action bg-transparent border-0" onclick="mostrarPagina('inicio')">
-                        <i class="bi bi-grid me-2"></i>Dashboard
-                    </button>
-                    <!-- NUEVOS BOTONES SEGÚN PROTOTIPOS -->
-                    <button class="list-group-item list-group-item-action bg-transparent border-0" onclick="mostrarPagina('pos')">
-                        <i class="bi bi-cart-plus me-2"></i>Registrar Venta
-                    </button>
-                    <button class="list-group-item list-group-item-action bg-transparent border-0" onclick="mostrarPagina('inventario')">
-                        <i class="bi bi-box-seam me-2"></i>Gestión Inventario
-                    </button>
-                    <button class="list-group-item list-group-item-action bg-transparent border-0" onclick="mostrarPagina('insumos')">
-                        <i class="bi bi-truck me-2"></i>Recepción Insumos
-                    </button>
-                    <button class="list-group-item list-group-item-action bg-transparent border-0" onclick="mostrarPagina('reportes')">
-                        <i class="bi bi-bar-chart-line me-2"></i>Reportes
-                    </button>
-                    
-                    <div class="border-top my-3"></div>
-                    
-                    <button class="list-group-item list-group-item-action bg-transparent border-0 text-danger" onclick="cerrarSesion()">
-                        <i class="bi bi-box-arrow-left me-2"></i>Cerrar Sesión
-                    </button>
-                </div>
-            </div>
-
-            <!-- Contenido Principal -->
-            <div id="page-content-wrapper" class="w-100">
-                <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4 py-3">
-                    <div class="d-flex align-items-center">
-                        <i class="bi bi-list fs-3 me-3 cursor-pointer" id="menu-toggle"></i>
-                        <h4 class="m-0 text-primary fw-bold" id="pageTitle">Dashboard</h4>
+                <div class="ms-auto d-flex align-items-center">
+                    <span class="me-3 text-muted d-none d-md-block" id="fecha-actual"></span>
+                    <div class="position-relative me-3">
+                        <i class="bi bi-bell fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notif-count">3</span>
                     </div>
-                    
-                    <div class="ms-auto d-flex align-items-center">
-                        <span class="me-3 text-muted d-none d-md-block" id="fecha-actual"></span>
-                        <div class="position-relative me-3">
-                            <i class="bi bi-bell fs-5"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notif-count">3</span>
-                        </div>
-                    </div>
-                </nav>
-
-                <div class="container-fluid px-4 py-4">
-                    <!-- CONTENIDO DINÁMICO (Aquí se cargan las pantallas) -->
-                    <div id="contenido-principal"></div>
                 </div>
+            </nav>
+
+            <div class="container-fluid px-4 py-4">
+                <!-- CONTENIDO DINÁMICO (Aquí se cargan las pantallas) -->
+                <div id="contenido-principal"></div>
             </div>
         </div>
     </div>
