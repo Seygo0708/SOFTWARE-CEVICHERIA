@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RhapsodyArchive>
+	<MagicNumber></MagicNumber>
+	<CODE-PAGE>1252</CODE-PAGE>
+	<version>110.0.1</version>
+	<lang>C++</lang>
+	<BuildNo>202408271326</BuildNo>
+	<RMMMinimumClientVersion>100.0</RMMMinimumClientVersion>
+	
+	<RHAPSODY-MODEL>
+	<ISubsystem type="e">
+			<_id type="a">GUID 0281ef64-7352-4ec2-b05f-c6e3831c6557</_id>
+			<_name type="a">MODELO_DE_DISENO</_name>
+			<_displayName type="a">{\rtf1\ansi\ansicpg1252\deff0\deflang3082{\fonttbl{\f0\fnil\fcharset0 MS Shell Dlg;}}%0D
+\viewkind4\uc1\pard\f0\fs16 MODELO_DE_DISE\'d1O\par%0D
+}%0D
+</_displayName>
+			<_modifiedTimeWeak type="a">7.18.2021::5:29:19</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::6:20:26</_modifiedTime>
+			<_lastID type="a">6</_lastID>
+			<weakCGTime type="a">7.18.2021::5:29:19</weakCGTime>
+			<strongCGTime type="a">7.17.2021::5:27:11</strongCGTime>
+			<_defaultComposite type="s">GUID e5a8ed09-d7b6-4ff5-9c62-0c8501b9ce6f</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">7.17.2021::5:31:56</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 0e552363-9b25-4c33-8565-01f60d457378</value>
+				<value>GUID b4eccfba-9f31-4919-9c39-de7be6f96914</value>
+				<value>GUID e5a8ed09-d7b6-4ff5-9c62-0c8501b9ce6f</value>
+				<value>GUID 27dbda13-3986-4e3c-bba4-d9f05addd551</value>
+				<value>GUID d640aff5-8666-4845-94ca-e5f7bf30eca1</value>
+				<value>GUID ce90bfe9-4964-4ee9-8f95-b51993310ca1</value>
+				<value>GUID 9e2946f5-5da2-4886-adf0-1e2366a7c73c</value>
+			</AggregatesList>
+		</ISubsystem>
+		<ISubsystem type="e">
+			<fileName type="a">Capas</fileName>
+			<_id type="a">GUID 0e552363-9b25-4c33-8565-01f60d457378</_id>
+		</ISubsystem>
+		<ISubsystem type="e">
+			<fileName type="a">Realizacion_de_disenio</fileName>
+			<_id type="a">GUID b4eccfba-9f31-4919-9c39-de7be6f96914</_id>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID e5a8ed09-d7b6-4ff5-9c62-0c8501b9ce6f</_id>
+			<_myState type="a">40960</_myState>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">7.17.2021::5:32:10</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.17.2021::5:32:10</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">7.17.2021::5:32:10</weakCGTime>
+			<strongCGTime type="a">7.17.2021::5:27:11</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<IActor type="e">
+			<_id type="a">GUID 27dbda13-3986-4e3c-bba4-d9f05addd551</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">Administrador</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::6:9:17</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">MCUS_Principal</_hname>
+					<_hid type="a">GUID 7e631355-a966-4979-931c-601e065735c3</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">7.18.2021::6:9:17</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">7.18.2021::13:31:20</weakCGTime>
+			<strongCGTime type="a">7.18.2021::6:6:40</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID d8e4fcb9-7cdc-4bce-b145-7df1c05bbebd</value>
+				<value>GUID aa69dea8-50dd-49b5-a314-4ad9e3fe0d6c</value>
+				<value>GUID fe57b2bc-ac69-4f23-90cc-0aabc9ce2f79</value>
+				<value>GUID 709ac55f-9ebc-439e-b469-de89db482ed8</value>
+				<value>GUID e52b0a2e-8686-4498-8b54-597b12059019</value>
+				<value>GUID 46f19afe-34a1-4c89-8593-4e4fa96cd1c5</value>
+				<value>GUID bacf5558-dc2f-48d2-95e3-3523bbe751a8</value>
+				<value>GUID 5ef6583b-3c2f-43ed-b8e3-4b23bb42b102</value>
+			</AggregatesList>
+		</IActor>
+		<IDependency type="e">
+			<_id type="a">GUID d8e4fcb9-7cdc-4bce-b145-7df1c05bbebd</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Administrador</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::13:31:20</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.17.2021::5:48:18</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID 27dbda13-3986-4e3c-bba4-d9f05addd551</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID 27dbda13-3986-4e3c-bba4-d9f05addd551</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID aa69dea8-50dd-49b5-a314-4ad9e3fe0d6c</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGenerar Reportes</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:37:29</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Generar Reportes</_hname>
+					<_hid type="a">GUID b9225df9-ac42-4110-ac86-efeef29e8d6d</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID fe57b2bc-ac69-4f23-90cc-0aabc9ce2f79</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGesti%F3n de Inventarios y Pedidos</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:22:46</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hname type="a">Gesti%F3n de Inventarios y Pedidos</_hname>
+					<_hid type="a">GUID c581f44c-d755-48c0-930d-c4db518aa1db</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 709ac55f-9ebc-439e-b469-de89db482ed8</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGestionar Clientes</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:26:55</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Gestionar Clientes</_hname>
+					<_hid type="a">GUID 5e6605a4-918a-4d95-82a9-d0a46859f9b9</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID e52b0a2e-8686-4498-8b54-597b12059019</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsConsultar Reportes</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:26:58</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Consultar Reportes</_hname>
+					<_hid type="a">GUID 2d3a4ff5-76c3-4ca8-be55-0945479a7842</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 46f19afe-34a1-4c89-8593-4e4fa96cd1c5</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsControlStockService</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::6:7:32</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::6:7:32</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hname type="a">ControlStockService</_hname>
+					<_hid type="a">GUID d66f05bf-5d7e-4164-b6ea-26e8798efa37</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hclass type="a">ControlStockService</_hclass>
+					<_hname type="a">itsAdministrador</_hname>
+					<_hid type="a">GUID f13f1d96-3114-4d18-b674-b91db18fae0e</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID bacf5558-dc2f-48d2-95e3-3523bbe751a8</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsActualizacionInventarioService</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::6:7:52</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::6:7:52</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hname type="a">ActualizacionInventarioService</_hname>
+					<_hid type="a">GUID 312e08d9-7936-49ad-9577-aba840e1188f</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hclass type="a">ActualizacionInventarioService</_hclass>
+					<_hname type="a">itsAdministrador</_hname>
+					<_hid type="a">GUID 27350517-83d3-446c-a49d-2cbb89e38aa0</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 5ef6583b-3c2f-43ed-b8e3-4b23bb42b102</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsActualizacionInventarioService_1</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::6:9:17</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::6:9:17</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hname type="a">ActualizacionInventarioService</_hname>
+					<_hid type="a">GUID 312e08d9-7936-49ad-9577-aba840e1188f</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hclass type="a">ActualizacionInventarioService</_hclass>
+					<_hname type="a">itsAdministrador_1</_hname>
+					<_hid type="a">GUID 831dd21c-8aab-42dc-8b5e-3b3a0fc16421</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IActor type="e">
+			<_id type="a">GUID d640aff5-8666-4845-94ca-e5f7bf30eca1</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">Almacenero</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::6:7:42</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">MCUS_Principal</_hname>
+					<_hid type="a">GUID 7e631355-a966-4979-931c-601e065735c3</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">7.18.2021::6:7:42</_modifiedTime>
+			<weakCGTime type="a">7.18.2021::6:7:42</weakCGTime>
+			<strongCGTime type="a">7.18.2021::6:6:51</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID 08b6fdc7-8e3d-4945-9414-0af4d041c25e</value>
+				<value>GUID 2663111b-8a40-4366-a1ac-02785e9f603a</value>
+				<value>GUID 3627cb3a-5863-4fda-8f97-14f642712aea</value>
+				<value>GUID 5a508961-a500-4496-b9a6-254139699382</value>
+				<value>GUID fcf1df90-753c-482b-b549-ce0e860c3f27</value>
+				<value>GUID 6c4776b6-9dba-4bd8-8d88-59574b4aa162</value>
+				<value>GUID b57e1ea5-34b7-4eee-a384-6e7a41a7c4f6</value>
+			</AggregatesList>
+		</IActor>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 08b6fdc7-8e3d-4945-9414-0af4d041c25e</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsAlmacenero</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:6:54</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:6:54</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID d640aff5-8666-4845-94ca-e5f7bf30eca1</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hid type="a">GUID 2663111b-8a40-4366-a1ac-02785e9f603a</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 2663111b-8a40-4366-a1ac-02785e9f603a</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsAlmacenero_1</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:6:54</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:6:54</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID d640aff5-8666-4845-94ca-e5f7bf30eca1</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hid type="a">GUID 08b6fdc7-8e3d-4945-9414-0af4d041c25e</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 3627cb3a-5863-4fda-8f97-14f642712aea</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsCancelar Venta</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:9:53</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Cancelar Venta</_hname>
+					<_hid type="a">GUID 0f4c44c0-c3fd-4435-a5c5-d94a02171302</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 5a508961-a500-4496-b9a6-254139699382</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGesti%F3n de Inventarios y Pedidos</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:22:44</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hname type="a">Gesti%F3n de Inventarios y Pedidos</_hname>
+					<_hid type="a">GUID c581f44c-d755-48c0-930d-c4db518aa1db</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID fcf1df90-753c-482b-b549-ce0e860c3f27</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGestionar Inventario</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:26:17</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Gestionar Inventario</_hname>
+					<_hid type="a">GUID 3d50f956-51cf-4f8c-871b-26f38658c1a7</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 6c4776b6-9dba-4bd8-8d88-59574b4aa162</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRecibir Insumos</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:26:20</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Recibir Insumos</_hname>
+					<_hid type="a">GUID 2c0b5c15-d420-41fd-80ae-20f578829479</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID b57e1ea5-34b7-4eee-a384-6e7a41a7c4f6</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsControlStockService</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::6:7:42</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::6:7:42</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hname type="a">ControlStockService</_hname>
+					<_hid type="a">GUID d66f05bf-5d7e-4164-b6ea-26e8798efa37</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hclass type="a">ControlStockService</_hclass>
+					<_hname type="a">itsAlmacenero</_hname>
+					<_hid type="a">GUID 74f60052-1852-4487-8e58-971a500095f6</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IActor type="e">
+			<_id type="a">GUID ce90bfe9-4964-4ee9-8f95-b51993310ca1</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">Cajero</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::6:2:41</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">MCUS_Principal</_hname>
+					<_hid type="a">GUID 7e631355-a966-4979-931c-601e065735c3</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">7.18.2021::6:2:41</_modifiedTime>
+			<_lastID type="a">7</_lastID>
+			<weakCGTime type="a">7.18.2021::6:2:41</weakCGTime>
+			<strongCGTime type="a">7.18.2021::5:29:19</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID 50686def-7119-4002-b5a3-7c4675cd27c1</value>
+				<value>GUID a5f78d66-8063-44b8-b028-29c12b29061e</value>
+				<value>GUID e62eaf91-d783-4ffb-ad0f-1f88d1334d60</value>
+				<value>GUID d0bcf9c1-38fb-4ebb-9191-aad3fc5d0280</value>
+				<value>GUID efe47765-5a90-44d5-ad34-f17457af90c4</value>
+				<value>GUID 1f7a768e-75ae-4724-8c82-41b6b122380d</value>
+				<value>GUID 370df0e8-7a67-4cec-a031-c27e5db08bc4</value>
+				<value>GUID d399e264-0862-4f33-a951-f29c5f76136d</value>
+				<value>GUID 3173044d-7e35-47b8-9280-eb7ecc9a4767</value>
+				<value>GUID 389aa5b9-0367-4251-85f5-e53b90971863</value>
+			</AggregatesList>
+		</IActor>
+		<IDependency type="e">
+			<_id type="a">GUID 50686def-7119-4002-b5a3-7c4675cd27c1</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">CalculoPagoService</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::6:2:41</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::6:2:41</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hname type="a">CalculoPagoService</_hname>
+					<_hid type="a">GUID 28113cf9-24ab-4139-a181-940f1a77165c</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID ce90bfe9-4964-4ee9-8f95-b51993310ca1</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID a5f78d66-8063-44b8-b028-29c12b29061e</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRegistrar venta_1</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:36:21</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Registrar venta</_hname>
+					<_hid type="a">GUID 9ff82b8f-f8b6-4557-9316-25750df278c4</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID e62eaf91-d783-4ffb-ad0f-1f88d1334d60</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsEmitir comprobante_1</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:38:30</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Emitir comprobante</_hname>
+					<_hid type="a">GUID 96db5078-45d1-463d-bd5d-1c1c8c0c57d3</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID d0bcf9c1-38fb-4ebb-9191-aad3fc5d0280</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGesti%F3n de Ventas</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:22:42</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hname type="a">Gesti%F3n de Ventas</_hname>
+					<_hid type="a">GUID 7c0f8633-828c-4d4a-8352-03e878680817</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID efe47765-5a90-44d5-ad34-f17457af90c4</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRegistrar venta</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:20:16</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Registrar venta</_hname>
+					<_hid type="a">GUID 9ff82b8f-f8b6-4557-9316-25750df278c4</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 1f7a768e-75ae-4724-8c82-41b6b122380d</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsEmitir comprobante</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:21:3</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Emitir comprobante</_hname>
+					<_hid type="a">GUID 96db5078-45d1-463d-bd5d-1c1c8c0c57d3</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 370df0e8-7a67-4cec-a031-c27e5db08bc4</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsCancelar Venta</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:21:9</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Cancelar Venta</_hname>
+					<_hid type="a">GUID 0f4c44c0-c3fd-4435-a5c5-d94a02171302</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID d399e264-0862-4f33-a951-f29c5f76136d</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsConfirmar Pago</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:21:13</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Confirmar Pago</_hname>
+					<_hid type="a">GUID 06979d2d-6e22-4388-99d8-5ef8ad163bf5</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 3173044d-7e35-47b8-9280-eb7ecc9a4767</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsCliente</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:39:46</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:39:46</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID 9e2946f5-5da2-4886-adf0-1e2366a7c73c</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hid type="a">GUID c72bc6e1-c534-4db3-ba86-76887ed15e39</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 389aa5b9-0367-4251-85f5-e53b90971863</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRegistroVentaService</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:59:19</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:59:19</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IClass</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hname type="a">RegistroVentaService</_hname>
+					<_hid type="a">GUID 2b3a6391-878c-454d-8810-4f12a0263251</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\Realizacion_de_disenio.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_DISENO::Realizacion_de_disenio</_hsubsystem>
+					<_hclass type="a">RegistroVentaService</_hclass>
+					<_hname type="a">itsCajero</_hname>
+					<_hid type="a">GUID e78307ce-48bf-4330-af53-2c12c0ec5c73</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IActor type="e">
+			<_id type="a">GUID 9e2946f5-5da2-4886-adf0-1e2366a7c73c</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">Cliente</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:59:45</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">MCUS_Principal</_hname>
+					<_hid type="a">GUID 7e631355-a966-4979-931c-601e065735c3</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">7.18.2021::5:59:45</_modifiedTime>
+			<_lastID type="a">2</_lastID>
+			<weakCGTime type="a">7.18.2021::5:59:45</weakCGTime>
+			<strongCGTime type="a">7.18.2021::5:29:48</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID 12651c61-8090-43fa-99ee-b410408475a1</value>
+				<value>GUID 1ae03ae3-aed8-41ad-91a2-4e90d88b67f3</value>
+				<value>GUID c09b266a-dc13-4f6e-a6bd-ac02a3e4cecf</value>
+				<value>GUID 0f6c4950-d0c4-4be1-93fd-5f6fc40ef63a</value>
+				<value>GUID 79753f37-def8-454e-ad74-30ce88a70650</value>
+				<value>GUID c72bc6e1-c534-4db3-ba86-76887ed15e39</value>
+			</AggregatesList>
+		</IActor>
+		<IDependency type="e">
+			<_id type="a">GUID 12651c61-8090-43fa-99ee-b410408475a1</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Cliente</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:59:45</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:59:45</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID 9e2946f5-5da2-4886-adf0-1e2366a7c73c</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID 9e2946f5-5da2-4886-adf0-1e2366a7c73c</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 1ae03ae3-aed8-41ad-91a2-4e90d88b67f3</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRegistrar venta</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:35:41</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Registrar venta</_hname>
+					<_hid type="a">GUID 9ff82b8f-f8b6-4557-9316-25750df278c4</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID c09b266a-dc13-4f6e-a6bd-ac02a3e4cecf</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGesti%F3n de Ventas</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:22:39</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hname type="a">Gesti%F3n de Ventas</_hname>
+					<_hid type="a">GUID 7c0f8633-828c-4d4a-8352-03e878680817</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 0f6c4950-d0c4-4be1-93fd-5f6fc40ef63a</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRegistrar Pedido</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:25:26</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Registrar Pedido</_hname>
+					<_hid type="a">GUID 8a722a4f-e277-4e91-bda1-d8e7aead4cef</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 79753f37-def8-454e-ad74-30ce88a70650</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsConsultar Disponibilidad de Producto</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:25:29</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Consultar Disponibilidad de Producto</_hname>
+					<_hid type="a">GUID 9bd658ed-32c8-404e-a107-f52b045e72b3</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID c72bc6e1-c534-4db3-ba86-76887ed15e39</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsCajero</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:39:46</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:39:46</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID ce90bfe9-4964-4ee9-8f95-b51993310ca1</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hid type="a">GUID 3173044d-7e35-47b8-9280-eb7ecc9a4767</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		
+	</RHAPSODY-MODEL>
+	<OslcLinks type="c">
+		<IRPYRawContainer type="e">
+		</IRPYRawContainer>
+	</OslcLinks>
+
+<INCLUDES-RHAPSODY-INDEX>false</INCLUDES-RHAPSODY-INDEX>
+</RhapsodyArchive>
+

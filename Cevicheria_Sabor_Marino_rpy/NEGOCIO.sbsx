@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RhapsodyArchive>
+	<MagicNumber></MagicNumber>
+	<CODE-PAGE>1252</CODE-PAGE>
+	<version>110.0.1</version>
+	<lang>C++</lang>
+	<BuildNo>202408271326</BuildNo>
+	<RMMMinimumClientVersion>100.0</RMMMinimumClientVersion>
+	
+	<RHAPSODY-MODEL>
+	<ISubsystem type="e">
+			<_id type="a">GUID 0160ea40-d770-477f-a716-1ca7bf9af6e4</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">NEGOCIO</_name>
+			<_displayName type="a">01_Negocio</_displayName>
+			<_modifiedTimeWeak type="a">7.18.2021::5:11:53</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::6:41:28</_modifiedTime>
+			<_lastID type="a">2</_lastID>
+			<weakCGTime type="a">7.18.2021::5:11:53</weakCGTime>
+			<strongCGTime type="a">7.18.2021::5:11:53</strongCGTime>
+			<_defaultComposite type="s">GUID 43f93976-0d56-4525-9fba-5af8d8436634</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">7.18.2021::5:11:11</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID d4c551b4-7331-470f-be19-4acc6bb081d4</value>
+				<value>GUID 43f93976-0d56-4525-9fba-5af8d8436634</value>
+			</AggregatesList>
+		</ISubsystem>
+		<ISubsystem type="e">
+			<fileName type="a">MCUN</fileName>
+			<_id type="a">GUID d4c551b4-7331-470f-be19-4acc6bb081d4</_id>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID 43f93976-0d56-4525-9fba-5af8d8436634</_id>
+			<_myState type="a">40960</_myState>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		
+	</RHAPSODY-MODEL>
+	<OslcLinks type="c">
+		<IRPYRawContainer type="e">
+		</IRPYRawContainer>
+	</OslcLinks>
+
+<INCLUDES-RHAPSODY-INDEX>false</INCLUDES-RHAPSODY-INDEX>
+</RhapsodyArchive>
+

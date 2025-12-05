@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RhapsodyArchive>
+	<MagicNumber></MagicNumber>
+	<CODE-PAGE>1252</CODE-PAGE>
+	<version>110.0.1</version>
+	<lang>C++</lang>
+	<BuildNo>202408271326</BuildNo>
+	<RMMMinimumClientVersion>100.0</RMMMinimumClientVersion>
+	
+	<RHAPSODY-MODEL>
+	<ISubsystem type="e">
+			<_id type="a">GUID b7cc6a24-6ba8-49f8-bf96-d3db5d7d5e7a</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">Clientes</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:51:46</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IDiagram</_hm2Class>
+					<_hfilename type="a">.\MODELO_DE_ANALISIS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_ANALISIS</_hsubsystem>
+					<_hname type="a">Arquitectura de Analisis</_hname>
+					<_hid type="a">GUID b64f669d-9188-4296-aad7-0111e3d9e220</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">7.18.2021::6:4:33</_modifiedTime>
+			<_lastID type="a">4</_lastID>
+			<weakCGTime type="a">7.18.2021::5:51:46</weakCGTime>
+			<strongCGTime type="a">7.18.2021::5:51:46</strongCGTime>
+			<_defaultComposite type="s">GUID c804c738-ac9b-42a8-b4b4-8875334d5716</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">12.31.1969::19:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 8101ec70-aba1-4701-b27d-ae9ff2048f67</value>
+				<value>GUID c519b593-a245-4288-a3bd-df4024dc6292</value>
+				<value>GUID d59046fa-14d4-4454-bea0-f060d7af1e26</value>
+				<value>GUID 45b2f892-6a84-4a04-9d15-458fc3459835</value>
+				<value>GUID c804c738-ac9b-42a8-b4b4-8875334d5716</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IDependency type="e">
+			<_id type="a">GUID 8101ec70-aba1-4701-b27d-ae9ff2048f67</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Reportes</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:43:59</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:43:59</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">ISubsystem</_hm2Class>
+					<_hfilename type="a">.\Reportes.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::MODELO_DE_ANALISIS</_hsubsystem>
+					<_hname type="a">Reportes</_hname>
+					<_hid type="a">GUID 1b982672-a1c2-4296-a9d2-56442e277b4f</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">ISubsystem</_hm2Class>
+					<_hid type="a">GUID b7cc6a24-6ba8-49f8-bf96-d3db5d7d5e7a</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
+		<IDependency type="e">
+			<_id type="a">GUID c519b593-a245-4288-a3bd-df4024dc6292</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Inventario</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:44:15</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:44:15</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">ISubsystem</_hm2Class>
+					<_hfilename type="a">.\Inventario.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::ESTRUCTURA_INTERNA</_hsubsystem>
+					<_hname type="a">Inventario</_hname>
+					<_hid type="a">GUID 8186553c-499e-46ea-b07e-0622923bd20a</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">ISubsystem</_hm2Class>
+					<_hid type="a">GUID b7cc6a24-6ba8-49f8-bf96-d3db5d7d5e7a</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
+		<IDependency type="e">
+			<_id type="a">GUID d59046fa-14d4-4454-bea0-f060d7af1e26</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Ventas</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:51:42</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:51:42</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">ISubsystem</_hm2Class>
+					<_hfilename type="a">.\Ventas.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::ESTRUCTURA_INTERNA</_hsubsystem>
+					<_hname type="a">Ventas</_hname>
+					<_hid type="a">GUID 2e580eb3-0ca6-42bd-aae4-a76e5ec731c6</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">ISubsystem</_hm2Class>
+					<_hid type="a">GUID b7cc6a24-6ba8-49f8-bf96-d3db5d7d5e7a</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
+		<IDependency type="e">
+			<_id type="a">GUID 45b2f892-6a84-4a04-9d15-458fc3459835</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Productos</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:51:46</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:51:46</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">ISubsystem</_hm2Class>
+					<_hfilename type="a">.\Productos.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::ESTRUCTURA_INTERNA</_hsubsystem>
+					<_hname type="a">Productos</_hname>
+					<_hid type="a">GUID 6f9fbf15-b541-41b2-b912-b02e6d752950</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">ISubsystem</_hm2Class>
+					<_hid type="a">GUID b7cc6a24-6ba8-49f8-bf96-d3db5d7d5e7a</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
+		<IClass type="e">
+			<_id type="a">GUID c804c738-ac9b-42a8-b4b4-8875334d5716</_id>
+			<_myState type="a">40960</_myState>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::19:0:0</_modifiedTime>
+			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		
+	</RHAPSODY-MODEL>
+	<OslcLinks type="c">
+		<IRPYRawContainer type="e">
+		</IRPYRawContainer>
+	</OslcLinks>
+
+<INCLUDES-RHAPSODY-INDEX>false</INCLUDES-RHAPSODY-INDEX>
+</RhapsodyArchive>
+

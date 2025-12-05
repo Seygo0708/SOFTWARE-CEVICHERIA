@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RhapsodyArchive>
+	<MagicNumber></MagicNumber>
+	<CODE-PAGE>1252</CODE-PAGE>
+	<version>110.0.1</version>
+	<lang>C++</lang>
+	<BuildNo>202408271326</BuildNo>
+	<RMMMinimumClientVersion>100.0</RMMMinimumClientVersion>
+	
+	<RHAPSODY-MODEL>
+	<ISubsystem type="e">
+			<_id type="a">GUID 318ed83a-d521-452a-b50e-c5f36e49f400</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">ACTORES</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:27:48</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:29:9</_modifiedTime>
+			<weakCGTime type="a">7.18.2021::5:27:48</weakCGTime>
+			<strongCGTime type="a">7.18.2021::5:10:29</strongCGTime>
+			<_defaultComposite type="s">GUID 4dd8aff7-c1d0-4318-a79b-c4cad79c208b</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">12.31.1969::19:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 4dd8aff7-c1d0-4318-a79b-c4cad79c208b</value>
+				<value>GUID eaeb1800-6f95-4dd1-afa1-1998094fe42f</value>
+				<value>GUID 0af1183f-a943-4269-b055-4b3c4d0be101</value>
+				<value>GUID c7f09d77-a035-4d10-a583-7c60d4191dbf</value>
+				<value>GUID db408a04-4d5b-4f63-8df3-be1bb7426482</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID 4dd8aff7-c1d0-4318-a79b-c4cad79c208b</_id>
+			<_myState type="a">40960</_myState>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.1969::19:0:0</_modifiedTime>
+			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<IActor type="e">
+			<_id type="a">GUID eaeb1800-6f95-4dd1-afa1-1998094fe42f</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">Administrador</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">C:\Users\seygo\OneDrive - continental.edu.pe\UC 2025\DISE%D1O DE SOFWARE\all profiles\profiles\BusinessModelingProfile\BusinessModeling.sbsx</_hfilename>
+							<_hsubsystem type="a">BusinessModeling</_hsubsystem>
+							<_hname type="a">BusinessActor</_hname>
+							<_hid type="a">GUID 18637f3a-fddb-4ef2-bafa-205ae7d1c2fd</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">7.18.2021::13:31:20</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">MCUS_Principal</_hname>
+					<_hid type="a">GUID 7e631355-a966-4979-931c-601e065735c3</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">7.18.2021::13:26:58</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">7.18.2021::13:31:20</weakCGTime>
+			<strongCGTime type="a">7.18.2021::5:10:57</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID 67e175e7-64dc-443e-984a-b5ff5bae7524</value>
+				<value>GUID b2c2194a-cc48-4f90-bfc6-6b7447d96a39</value>
+				<value>GUID 229e0b00-1f2a-46ca-b407-3b7e21983aa0</value>
+				<value>GUID e8974e1b-a85d-4319-8e11-94c2661e5cf7</value>
+				<value>GUID 9abd1044-bbac-405c-85c1-92ba9563b8fc</value>
+			</AggregatesList>
+		</IActor>
+		<IDependency type="e">
+			<_id type="a">GUID 67e175e7-64dc-443e-984a-b5ff5bae7524</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Administrador</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::13:31:20</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:5:11</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID eaeb1800-6f95-4dd1-afa1-1998094fe42f</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID eaeb1800-6f95-4dd1-afa1-1998094fe42f</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID b2c2194a-cc48-4f90-bfc6-6b7447d96a39</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGenerar Reportes</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:37:29</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Generar Reportes</_hname>
+					<_hid type="a">GUID b9225df9-ac42-4110-ac86-efeef29e8d6d</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Generar Reportes</_hclass>
+					<_hname type="a">itsAdministrador</_hname>
+					<_hid type="a">GUID 381200d6-f773-4baf-838c-dc89b7c67cd2</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 229e0b00-1f2a-46ca-b407-3b7e21983aa0</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGesti%F3n de Inventarios y Pedidos</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:22:46</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hname type="a">Gesti%F3n de Inventarios y Pedidos</_hname>
+					<_hid type="a">GUID c581f44c-d755-48c0-930d-c4db518aa1db</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hclass type="a">Gesti%F3n de Inventarios y Pedidos</_hclass>
+					<_hname type="a">itsAdministrador</_hname>
+					<_hid type="a">GUID 929003ad-6bb3-421f-ae92-da5e5580d584</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID e8974e1b-a85d-4319-8e11-94c2661e5cf7</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGestionar Clientes</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:26:55</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Gestionar Clientes</_hname>
+					<_hid type="a">GUID 5e6605a4-918a-4d95-82a9-d0a46859f9b9</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Gestionar Clientes</_hclass>
+					<_hname type="a">itsAdministrador</_hname>
+					<_hid type="a">GUID e829d8ae-82d6-4593-a712-848c36fcb76d</_hid>
+				</IHandle>
+			</_inverse>
+			<Qualifiers type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</Qualifiers>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 9abd1044-bbac-405c-85c1-92ba9563b8fc</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsConsultar Reportes</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:26:58</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Consultar Reportes</_hname>
+					<_hid type="a">GUID 2d3a4ff5-76c3-4ca8-be55-0945479a7842</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Consultar Reportes</_hclass>
+					<_hname type="a">itsAdministrador</_hname>
+					<_hid type="a">GUID e91e0a29-af3b-4797-ae29-2da0b782cc4c</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IActor type="e">
+			<_id type="a">GUID 0af1183f-a943-4269-b055-4b3c4d0be101</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">Almacenero</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">C:\Users\seygo\OneDrive - continental.edu.pe\UC 2025\DISE%D1O DE SOFWARE\all profiles\profiles\BusinessModelingProfile\BusinessModeling.sbsx</_hfilename>
+							<_hsubsystem type="a">BusinessModeling</_hsubsystem>
+							<_hname type="a">BusinessActor</_hname>
+							<_hid type="a">GUID 18637f3a-fddb-4ef2-bafa-205ae7d1c2fd</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">7.18.2021::13:26:20</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">MCUS_Principal</_hname>
+					<_hid type="a">GUID 7e631355-a966-4979-931c-601e065735c3</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">7.18.2021::13:26:20</_modifiedTime>
+			<weakCGTime type="a">7.18.2021::13:26:20</weakCGTime>
+			<strongCGTime type="a">7.18.2021::5:10:57</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID ba844922-57b5-4e72-b340-0d22b53755e0</value>
+				<value>GUID e34ae060-2b6c-4f99-aaf9-d2a12775e98e</value>
+				<value>GUID b085e731-03c0-4a38-b583-84b68b2f425b</value>
+				<value>GUID 5a248863-3f47-4373-b7ff-1e2f80a5c1de</value>
+				<value>GUID 260c03d4-7c94-4bbc-ae58-c7d570324ba2</value>
+				<value>GUID fba77d0e-1b06-48e7-b5d9-2a4e5c347c65</value>
+			</AggregatesList>
+		</IActor>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID ba844922-57b5-4e72-b340-0d22b53755e0</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsAlmacenero</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:6:54</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:6:54</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID 0af1183f-a943-4269-b055-4b3c4d0be101</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hid type="a">GUID e34ae060-2b6c-4f99-aaf9-d2a12775e98e</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID e34ae060-2b6c-4f99-aaf9-d2a12775e98e</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsAlmacenero_1</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::5:6:54</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:6:54</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IActor</_hm2Class>
+					<_hid type="a">GUID 0af1183f-a943-4269-b055-4b3c4d0be101</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hid type="a">GUID ba844922-57b5-4e72-b340-0d22b53755e0</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID b085e731-03c0-4a38-b583-84b68b2f425b</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsCancelar Venta</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:9:53</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Cancelar Venta</_hname>
+					<_hid type="a">GUID 0f4c44c0-c3fd-4435-a5c5-d94a02171302</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Cancelar Venta</_hclass>
+					<_hname type="a">itsAlmacenero</_hname>
+					<_hid type="a">GUID 085964c1-e6cb-471b-804f-f3b380d9d6de</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 5a248863-3f47-4373-b7ff-1e2f80a5c1de</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGesti%F3n de Inventarios y Pedidos</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:22:44</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hname type="a">Gesti%F3n de Inventarios y Pedidos</_hname>
+					<_hid type="a">GUID c581f44c-d755-48c0-930d-c4db518aa1db</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hclass type="a">Gesti%F3n de Inventarios y Pedidos</_hclass>
+					<_hname type="a">itsAlmacenero</_hname>
+					<_hid type="a">GUID 9904ce5e-3a37-4f01-ba59-2d0d49e0640b</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 260c03d4-7c94-4bbc-ae58-c7d570324ba2</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGestionar Inventario</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:26:17</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Gestionar Inventario</_hname>
+					<_hid type="a">GUID 3d50f956-51cf-4f8c-871b-26f38658c1a7</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Gestionar Inventario</_hclass>
+					<_hname type="a">itsAlmacenero</_hname>
+					<_hid type="a">GUID a0af65ff-3574-4c54-a114-840e082edb7b</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID fba77d0e-1b06-48e7-b5d9-2a4e5c347c65</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRecibir Insumos</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:26:20</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Recibir Insumos</_hname>
+					<_hid type="a">GUID 2c0b5c15-d420-41fd-80ae-20f578829479</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Recibir Insumos</_hclass>
+					<_hname type="a">itsAlmacenero</_hname>
+					<_hid type="a">GUID f35880b7-197a-4a3a-a7d9-4507d1d55509</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IActor type="e">
+			<_id type="a">GUID c7f09d77-a035-4d10-a583-7c60d4191dbf</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">Cajero</_name>
+			<OwnedDependencies type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</OwnedDependencies>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">C:\Users\seygo\OneDrive - continental.edu.pe\UC 2025\DISE%D1O DE SOFWARE\all profiles\profiles\BusinessModelingProfile\BusinessModeling.sbsx</_hfilename>
+							<_hsubsystem type="a">BusinessModeling</_hsubsystem>
+							<_hname type="a">BusinessActor</_hname>
+							<_hid type="a">GUID 18637f3a-fddb-4ef2-bafa-205ae7d1c2fd</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">7.18.2021::13:21:13</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">MCUS_Principal</_hname>
+					<_hid type="a">GUID 7e631355-a966-4979-931c-601e065735c3</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">7.18.2021::13:21:13</_modifiedTime>
+			<_lastID type="a">6</_lastID>
+			<weakCGTime type="a">7.18.2021::13:21:13</weakCGTime>
+			<strongCGTime type="a">7.18.2021::5:10:57</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID 67605e6e-e682-44d8-8b5f-474f918cfe2f</value>
+				<value>GUID 8e552934-653f-44a8-a37a-ce08a749aba6</value>
+				<value>GUID 1312f8db-53f8-47df-b9b1-ffc2b0b0651a</value>
+				<value>GUID 3d123f60-ef87-4722-b0b8-57522fe75c9c</value>
+				<value>GUID f1999dfb-a868-4cd8-9d8d-982922dc50c4</value>
+				<value>GUID 6226e792-5122-4187-8cee-d15906f6a5df</value>
+				<value>GUID e9d92ce7-8855-49a5-8241-eb731fbf83c7</value>
+			</AggregatesList>
+		</IActor>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 67605e6e-e682-44d8-8b5f-474f918cfe2f</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRegistrar venta_1</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:36:21</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Registrar venta</_hname>
+					<_hid type="a">GUID 9ff82b8f-f8b6-4557-9316-25750df278c4</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Registrar venta</_hclass>
+					<_hname type="a">itsCajero</_hname>
+					<_hid type="a">GUID ea279399-8023-4612-b9ce-f1631e7b2411</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 8e552934-653f-44a8-a37a-ce08a749aba6</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsEmitir comprobante_1</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:38:30</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Emitir comprobante</_hname>
+					<_hid type="a">GUID 96db5078-45d1-463d-bd5d-1c1c8c0c57d3</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Emitir comprobante</_hclass>
+					<_hname type="a">itsCajero</_hname>
+					<_hid type="a">GUID 55da243d-564f-4910-ae53-dfeb204cb8a1</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 1312f8db-53f8-47df-b9b1-ffc2b0b0651a</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGesti%F3n de Ventas</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:22:42</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hname type="a">Gesti%F3n de Ventas</_hname>
+					<_hid type="a">GUID 7c0f8633-828c-4d4a-8352-03e878680817</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hclass type="a">Gesti%F3n de Ventas</_hclass>
+					<_hname type="a">itsCajero</_hname>
+					<_hid type="a">GUID c8e0813f-f6b7-43e1-bcb4-13bbf45602d9</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 3d123f60-ef87-4722-b0b8-57522fe75c9c</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRegistrar venta</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:20:16</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Registrar venta</_hname>
+					<_hid type="a">GUID 9ff82b8f-f8b6-4557-9316-25750df278c4</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Registrar venta</_hclass>
+					<_hname type="a">itsCajero_1</_hname>
+					<_hid type="a">GUID 9a1c649d-8e28-4a91-a2aa-ca04f61f3dbb</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID f1999dfb-a868-4cd8-9d8d-982922dc50c4</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsEmitir comprobante</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:21:3</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Emitir comprobante</_hname>
+					<_hid type="a">GUID 96db5078-45d1-463d-bd5d-1c1c8c0c57d3</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Emitir comprobante</_hclass>
+					<_hname type="a">itsCajero_1</_hname>
+					<_hid type="a">GUID 19e5e20f-122a-455e-8e5c-60873bd5ccf9</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 6226e792-5122-4187-8cee-d15906f6a5df</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsCancelar Venta</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:21:9</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Cancelar Venta</_hname>
+					<_hid type="a">GUID 0f4c44c0-c3fd-4435-a5c5-d94a02171302</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Cancelar Venta</_hclass>
+					<_hname type="a">itsCajero</_hname>
+					<_hid type="a">GUID e40f5308-b7e4-423c-9dd0-65ee924b62e8</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID e9d92ce7-8855-49a5-8241-eb731fbf83c7</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsConfirmar Pago</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:21:13</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Confirmar Pago</_hname>
+					<_hid type="a">GUID 06979d2d-6e22-4388-99d8-5ef8ad163bf5</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Confirmar Pago</_hclass>
+					<_hname type="a">itsCajero</_hname>
+					<_hid type="a">GUID 3364947f-558b-4cc8-aabf-1a8dc83a7363</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IActor type="e">
+			<_id type="a">GUID db408a04-4d5b-4f63-8df3-be1bb7426482</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">Cliente</_name>
+			<OwnedDependencies type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</OwnedDependencies>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">C:\Users\seygo\OneDrive - continental.edu.pe\UC 2025\DISE%D1O DE SOFWARE\all profiles\profiles\BusinessModelingProfile\BusinessModeling.sbsx</_hfilename>
+							<_hsubsystem type="a">BusinessModeling</_hsubsystem>
+							<_hname type="a">BusinessActor</_hname>
+							<_hid type="a">GUID 18637f3a-fddb-4ef2-bafa-205ae7d1c2fd</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">7.18.2021::13:25:29</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">MCUS_Principal</_hname>
+					<_hid type="a">GUID 7e631355-a966-4979-931c-601e065735c3</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">7.18.2021::13:25:29</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">7.18.2021::13:25:29</weakCGTime>
+			<strongCGTime type="a">7.18.2021::5:10:57</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<AggregatesList type="e">
+				<value>GUID 58bb308d-28bc-4f59-b696-fc145aad1b05</value>
+				<value>GUID 5315434c-562e-4bac-923c-720435663dc4</value>
+				<value>GUID b026f282-a3ab-413f-8167-d4f302da50dd</value>
+				<value>GUID 246aee88-bbe6-4f9e-a444-06f045e8a850</value>
+			</AggregatesList>
+		</IActor>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 58bb308d-28bc-4f59-b696-fc145aad1b05</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRegistrar venta</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:35:41</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Registrar venta</_hname>
+					<_hid type="a">GUID 9ff82b8f-f8b6-4557-9316-25750df278c4</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Registrar venta</_hclass>
+					<_hname type="a">itsCliente</_hname>
+					<_hid type="a">GUID f1efa26f-faa5-46f6-bd2b-68dd29f16cca</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 5315434c-562e-4bac-923c-720435663dc4</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsGesti%F3n de Ventas</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::5:22:39</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hname type="a">Gesti%F3n de Ventas</_hname>
+					<_hid type="a">GUID 7c0f8633-828c-4d4a-8352-03e878680817</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUN.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::NEGOCIO::MCUN</_hsubsystem>
+					<_hclass type="a">Gesti%F3n de Ventas</_hclass>
+					<_hname type="a">itsCliente</_hname>
+					<_hid type="a">GUID 4653600e-249e-49ca-aa4c-96eaced71b0f</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID b026f282-a3ab-413f-8167-d4f302da50dd</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsRegistrar Pedido</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:25:26</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Registrar Pedido</_hname>
+					<_hid type="a">GUID 8a722a4f-e277-4e91-bda1-d8e7aead4cef</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Registrar Pedido</_hclass>
+					<_hname type="a">itsCliente</_hname>
+					<_hid type="a">GUID a8c74a4f-2929-411e-9c43-e7b2b7e7208a</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		<IAssociationEnd type="e">
+			<_id type="a">GUID 246aee88-bbe6-4f9e-a444-06f045e8a850</_id>
+			<_myState type="a">10240</_myState>
+			<_name type="a">itsConsultar Disponibilidad de Producto</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::13:25:29</_modifiedTime>
+			<_multiplicity type="a">1</_multiplicity>
+			<_otherClass type="r">
+				<IClassifierHandle type="e">
+					<_hm2Class type="a">IUseCase</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hname type="a">Consultar Disponibilidad de Producto</_hname>
+					<_hid type="a">GUID 9bd658ed-32c8-404e-a107-f52b045e72b3</_hid>
+				</IClassifierHandle>
+			</_otherClass>
+			<_inverse type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IAssociationEnd</_hm2Class>
+					<_hfilename type="a">.\MCUS.sbsx</_hfilename>
+					<_hsubsystem type="a">Default::SISTEMA::MCUS</_hsubsystem>
+					<_hclass type="a">Consultar Disponibilidad de Producto</_hclass>
+					<_hname type="a">itsCliente</_hname>
+					<_hid type="a">GUID 2f5338ea-2cc1-41b7-a2ac-fea738852957</_hid>
+				</IHandle>
+			</_inverse>
+			<_linkType type="a">Assoc</_linkType>
+			<_navigability type="a">Navigable</_navigability>
+		</IAssociationEnd>
+		
+	</RHAPSODY-MODEL>
+	<OslcLinks type="c">
+		<IRPYRawContainer type="e">
+		</IRPYRawContainer>
+	</OslcLinks>
+
+<INCLUDES-RHAPSODY-INDEX>false</INCLUDES-RHAPSODY-INDEX>
+</RhapsodyArchive>
+

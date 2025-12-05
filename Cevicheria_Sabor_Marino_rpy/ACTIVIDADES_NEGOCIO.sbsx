@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RhapsodyArchive>
+	<MagicNumber></MagicNumber>
+	<CODE-PAGE>1252</CODE-PAGE>
+	<version>110.0.1</version>
+	<lang>C++</lang>
+	<BuildNo>202408271326</BuildNo>
+	<RMMMinimumClientVersion>100.0</RMMMinimumClientVersion>
+	
+	<RHAPSODY-MODEL>
+	<ISubsystem type="e">
+			<_id type="a">GUID d343002f-fddb-4a38-b567-dc73ed0dc399</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">ACTIVIDADES_NEGOCIO</_name>
+			<_modifiedTimeWeak type="a">7.18.2021::7:14:30</_modifiedTimeWeak>
+			<_modifiedTime type="a">7.18.2021::7:49:44</_modifiedTime>
+			<_lastID type="a">1</_lastID>
+			<weakCGTime type="a">7.18.2021::7:14:30</weakCGTime>
+			<strongCGTime type="a">7.18.2021::7:14:22</strongCGTime>
+			<_defaultComposite type="s">GUID c7175445-1669-43bd-a467-31c3d2da8196</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.2.1990::0:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID a930e209-92dd-4be1-85c1-0fb7814d2cb9</value>
+				<value>GUID c7175445-1669-43bd-a467-31c3d2da8196</value>
+			</AggregatesList>
+		</ISubsystem>
+		<ISubsystem type="e">
+			<fileName type="a">MAN</fileName>
+			<_id type="a">GUID a930e209-92dd-4be1-85c1-0fb7814d2cb9</_id>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID c7175445-1669-43bd-a467-31c3d2da8196</_id>
+			<_myState type="a">40960</_myState>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
+			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		
+	</RHAPSODY-MODEL>
+	<OslcLinks type="c">
+		<IRPYRawContainer type="e">
+		</IRPYRawContainer>
+	</OslcLinks>
+
+<INCLUDES-RHAPSODY-INDEX>false</INCLUDES-RHAPSODY-INDEX>
+</RhapsodyArchive>
+

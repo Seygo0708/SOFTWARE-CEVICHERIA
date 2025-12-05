@@ -1,0 +1,116 @@
+/* Variables Cevicheria El Buen Sabor */
+:root {
+    --primary-color: #0077b6; /* Azul Profundo */
+    --secondary-color: #00b4d8; /* Azul Claro */
+    --accent-color: #90e0ef;    /* Celeste */
+    --dark-color: #03045e;      /* Azul Marino Oscuro */
+    --bg-color: #f0f7fa;        /* Fondo gris/azulado muy suave */
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+}
+
+/* --- LOGIN --- */
+.login-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #03045e 0%, #0077b6 100%);
+    position: fixed;
+    top: 0; left: 0; z-index: 9999;
+}
+.login-box {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    width: 100%; max-width: 400px;
+    border-top: 6px solid var(--secondary-color);
+}
+.logo-circle {
+    width: 80px; height: 80px;
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 2.5rem; margin: 0 auto;
+}
+
+/* --- SIDEBAR & LAYOUT --- */
+#wrapper { overflow-x: hidden; }
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -16rem;
+    transition: margin 0.25s ease-out;
+    width: 16rem;
+}
+#sidebar-wrapper .list-group { width: 16rem; }
+#wrapper.toggled #sidebar-wrapper { margin-left: 0; }
+#page-content-wrapper { min-width: 100vw; transition: all 0.3s; }
+.cursor-pointer { cursor: pointer; }
+
+@media (min-width: 768px) {
+    #sidebar-wrapper { margin-left: 0; }
+    #page-content-wrapper { min-width: 0; width: 100%; }
+    #wrapper.toggled #sidebar-wrapper { margin-left: -16rem; }
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA PROTOTIPOS --- */
+
+/* Cards generales */
+.card-custom {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+.card-custom:hover { transform: translateY(-3px); }
+
+/* Pantalla POS (Ventas) */
+.product-grid-card {
+    cursor: pointer;
+    border: 1px solid #e0e0e0;
+    transition: all 0.2s;
+}
+.product-grid-card:hover {
+    border-color: var(--primary-color);
+    background-color: #f8fdff;
+}
+.ticket-panel {
+    background-color: #fff;
+    border-left: 1px solid #ddd;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+/* Pantalla Comprobante (Boleta) */
+.boleta-paper {
+    background: #fff;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    font-family: 'Courier New', Courier, monospace; /* Fuente tipo ticket */
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+}
+.boleta-header { border-bottom: 1px dashed #000; padding-bottom: 10px; margin-bottom: 15px; }
+.boleta-footer { border-top: 1px dashed #000; padding-top: 10px; margin-top: 15px; }
+
+/* Estados de Inventario */
+.status-badge { font-size: 0.85em; padding: 5px 10px; border-radius: 20px; }
+.status-normal { background-color: #d1fae5; color: #065f46; } /* Verde */
+.status-low { background-color: #fef3c7; color: #92400e; }    /* Amarillo */
+.status-critical { background-color: #fee2e2; color: #b91c1c; } /* Rojo */
+
+/* Utilidades */
+.text-primary { color: var(--primary-color) !important; }
+.btn-primary { background-color: var(--primary-color); border-color: var(--primary-color); }
+.btn-primary:hover { background-color: var(--dark-color); }
+.bg-light-blue { background-color: var(--bg-color); }
