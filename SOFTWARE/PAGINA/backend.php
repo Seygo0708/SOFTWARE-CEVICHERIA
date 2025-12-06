@@ -14,6 +14,45 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 try {
     switch ($action) {
 
+        // ================= GUARDAR PEDIDO (cliente) =================
+        case 'guardar_pedido':
+            $body = file_get_contents('php://input');
+            $data = json_decode($body, true);
+
+            if (!$data || !isset($data['total'], $data['mesa'])) {
+                echo json_encode(['success' => false, 'error' => 'Datos de pedido incompletos']);
+                break;
+            }
+
+            $id_cliente  = isset($data['id_cliente']) ? intval($data['id_cliente']) : 1;
+            $mesa        = $conn->real_escape_string($data['mesa']);
+            $total       = floatval($data['total']);
+            $metodo_pago = isset($data['metodo_pago']) ? $conn->real_escape_string($data['metodo_pago']) : 'Efectivo';
+            $detalleJson = isset($data['productos']) ? $conn->real_escape_string(json_encode($data['productos'])) : '[]';
+
+            // Requiere columnas: mesa, total, metodo_pago, detalle, estado, fecha
+            $sql = "INSERT INTO pedido (id_cliente, mesa, total, metodo_pago, detalle, estado, fecha)
+                    VALUES ($id_cliente, '$mesa', $total, '$metodo_pago', '$detalleJson', 'PENDIENTE', NOW())";
+
+            if ($conn->query($sql)) {
+                echo json_encode(['success' => true]);
+            } else {
+                echo json_encode(['success' => false, 'error' => $conn->error]);
+            }
+            break;
+
+        // ================= LISTAR PEDIDOS PENDIENTES (cajero) =================
+        case 'get_pedidos':
+            $rows = [];
+            $sql  = "SELECT * FROM pedido WHERE estado='PENDIENTE' ORDER BY fecha DESC";
+            if ($res = $conn->query($sql)) {
+                while ($r = $res->fetch_assoc()) {
+                    $rows[] = $r;
+                }
+            }
+            echo json_encode($rows, JSON_UNESCAPED_UNICODE);
+            break;
+
         // ================= LOGIN =================
         case 'login':
             $body = file_get_contents('php://input');
@@ -64,8 +103,8 @@ try {
 
         // ================= DASHBOARD =================
         case 'get_dashboard':
-            $ventas_hoy   = 0;
-            $pedidos_hoy  = 0;
+            $ventas_hoy     = 0;
+            $pedidos_hoy    = 0;
             $total_clientes = 0;
 
             if ($r = $conn->query("SELECT SUM(total) AS t FROM venta WHERE DATE(fecha_venta) = CURDATE()")) {
@@ -84,9 +123,9 @@ try {
             }
 
             echo json_encode([
-                'ventas_hoy'    => $ventas_hoy,
-                'pedidos_hoy'   => $pedidos_hoy,
-                'total_clientes'=> $total_clientes,
+                'ventas_hoy'     => $ventas_hoy,
+                'pedidos_hoy'    => $pedidos_hoy,
+                'total_clientes' => $total_clientes,
             ]);
             break;
 
@@ -102,7 +141,7 @@ try {
             echo json_encode($productos, JSON_UNESCAPED_UNICODE);
             break;
 
-        // ================= GUARDAR VENTA =================
+        // ================= GUARDAR VENTA (cajero) =================
         case 'guardar_venta':
             $body = file_get_contents('php://input');
             $data = json_decode($body, true);
@@ -112,7 +151,7 @@ try {
                 break;
             }
 
-            $total = floatval($data['total']);
+            $total     = floatval($data['total']);
             $productos = $data['productos'];
 
             // Por ahora usamos cliente 1 y usuario 1 por defecto
@@ -122,13 +161,14 @@ try {
             $conn->begin_transaction();
 
             try {
-                $sqlVenta = "INSERT INTO venta (id_cliente, id_usuario, total, fecha_venta) VALUES (?, ?, ?, NOW())";
-                $stmtVenta = $conn->prepare($sqlVenta);
+                $sqlVenta   = "INSERT INTO venta (id_cliente, id_usuario, total, fecha_venta) VALUES (?, ?, ?, NOW())";
+                $stmtVenta  = $conn->prepare($sqlVenta);
                 $stmtVenta->bind_param('iid', $id_cliente, $id_usuario, $total);
                 $stmtVenta->execute();
                 $idVenta = $stmtVenta->insert_id;
 
-                $sqlDet = "INSERT INTO detalle_venta (id_venta, id_producto, cantidad, precio_unitario, subtotal) VALUES (?, ?, ?, ?, ?)";
+                $sqlDet = "INSERT INTO detalle_venta (id_venta, id_producto, cantidad, precio_unitario, subtotal)
+                           VALUES (?, ?, ?, ?, ?)";
                 $stmtDet = $conn->prepare($sqlDet);
 
                 foreach ($productos as $p) {
@@ -156,4 +196,3 @@ try {
 } catch (Exception $e) {
     echo json_encode(['error' => 'Error del servidor: ' . $e->getMessage()]);
 }
-

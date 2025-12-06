@@ -13,25 +13,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // Carrito de ventas (POS)
     let carritoPOS = [];
     let metodoPago = 'Efectivo';
+    let usuarioActual = null;
+    let campanaInterval = null;
 
     // Ocultar dashboard al inicio
     if(wrapper) wrapper.style.display = 'none';
     if(document.getElementById('fecha-actual')){
-        document.getElementById('fecha-actual').textContent = new Date().toLocaleDateString('es-PE', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('fecha-actual').textContent =
+            new Date().toLocaleDateString('es-PE',
+            { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     }
 
-    // --- 1. LÓGICA DE LOGIN REAL (CONECTADA A BASE DE DATOS) ---
+    // --- Campana de notificaciones (pedidos para cajero) ---
+    function actualizarCampana() {
+        const stored = sessionStorage.getItem('usuario_actual');
+        const u = usuarioActual || (stored ? JSON.parse(stored) : null);
+        const rol = (u && u.rol ? u.rol : '').toUpperCase();
+        if (rol === 'CLIENTE') return; // solo cajero/admin
+
+        fetch('backend.php?action=get_pedidos')
+            .then(r => r.json())
+            .then(pedidos => {
+                const badge = document.getElementById('notif-count');
+                if (!badge) return;
+                const n = pedidos.length || 0;
+                badge.textContent = n;
+                badge.style.display = n > 0 ? 'inline-block' : 'none';
+                const mesas = pedidos.map(p => p.mesa || 'SIN MESA');
+                badge.title = n > 0 ? 'Mesas pendientes: ' + mesas.join(', ') : '';
+            })
+            .catch(() => {});
+    }
+
+    // --- 1. LOGIN ---
     if(loginForm){
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Obtener datos del formulario
-            const user = document.getElementById('username').value.trim(); // .trim() quita espacios accidentales
+            const user = document.getElementById('username').value.trim();
             const pass = document.getElementById('password').value.trim();
 
-            console.log("Intentando ingresar con:", user); // Para depurar en consola (F12)
-
-            // Conectar con PHP
             fetch('backend.php?action=login', {
                 method: 'POST',
                 body: JSON.stringify({ username: user, password: pass }),
@@ -42,32 +63,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(data => {
-                console.log("Respuesta del servidor:", data);
-                
                 if (data.success) {
-                    // SI EL LOGIN ES CORRECTO:
                     loginSection.style.display = 'none';
                     wrapper.style.display = 'flex';
-                    // Guardar sesión temporalmente
-                    sessionStorage.setItem('usuario_actual', JSON.stringify(data.user));
 
-                    // Aplicar permisos según rol
+                    sessionStorage.setItem('usuario_actual', JSON.stringify(data.user));
+                    usuarioActual = data.user;
+
                     aplicarPermisos(data.user.rol || 'CAJERO');
 
-                    // Cargar pantalla inicial según rol
                     if ((data.user.rol || '').toUpperCase() === 'CLIENTE') {
                         loadScreen('pos');
                     } else {
                         loadScreen('dashboard');
+                        actualizarCampana();
+                        if (campanaInterval) clearInterval(campanaInterval);
+                        campanaInterval = setInterval(actualizarCampana, 5000);
                     }
                 } else {
-                    // SI LA CONTRASEÑA ES INCORRECTA:
                     alert('Error: ' + data.message);
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('No se pudo conectar con la base de datos. \n\nVerifica:\n1. Que XAMPP (Apache y MySQL) esté encendido.\n2. Que estés abriendo esto desde "localhost", no como archivo.');
+                alert('No se pudo conectar con la base de datos.\n\nVerifica XAMPP y que entras por localhost.');
             });
         });
     }
@@ -83,14 +102,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const elConfig     = document.getElementById('menu-config');
 
         if (r === 'CLIENTE') {
-            // El cliente solo ve Dashboard simple y POS / notificaciones, NO gestión
             if (elUsuarios)  elUsuarios.style.display = 'none';
             if (elClientes)  elClientes.style.display = 'none';
             if (elProductos) elProductos.style.display = 'none';
             if (elVentas)    elVentas.style.display = 'none';
             if (elConfig)    elConfig.style.display = 'none';
         } else {
-            // CAJERO / ADMIN: ven todo el menú
             [elUsuarios, elClientes, elProductos, elVentas, elConfig].forEach(el => {
                 if (el) {
                     el.style.display = '';
@@ -100,14 +117,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // --- 2. LÓGICA DEL MENÚ LATERAL ---
+    // --- 2. MENÚ LATERAL ---
     if(menuToggle){
         menuToggle.addEventListener('click', function() {
             wrapperDiv.classList.toggle('toggled');
         });
     }
 
-    // Botón Cerrar Sesión
     if(btnLogout){
         btnLogout.addEventListener('click', function() {
             wrapper.style.display = 'none';
@@ -115,27 +131,29 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('username').value = '';
             document.getElementById('password').value = '';
             carritoPOS = [];
+            usuarioActual = null;
+            if (campanaInterval) {
+                clearInterval(campanaInterval);
+                campanaInterval = null;
+            }
         });
     }
 
-    // Links del menú
     const links = ['dashboard', 'pos', 'usuarios', 'clientes'];
     links.forEach(link => {
         const el = document.getElementById(`menu-${link}`);
         if(el) el.addEventListener('click', (e) => {
-            e.preventDefault(); // Evitar salto de página
+            e.preventDefault();
             loadScreen(link);
         });
     });
 
-    // --- 3. CARGADOR DE PANTALLAS (DASHBOARD, POS, ETC) ---
+    // --- 3. CARGADOR DE PANTALLAS ---
     window.loadScreen = async function(screenName) {
-        // Quitar clase activa a todos
         document.querySelectorAll('.list-group-item').forEach(el => el.classList.remove('active'));
         const activeLink = document.getElementById(`menu-${screenName}`);
         if(activeLink) activeLink.classList.add('active');
         
-        // Efecto visual
         contenidoPrincipal.style.opacity = '0';
         
         setTimeout(async () => {
@@ -143,8 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             try {
                 switch(screenName) {
-                    // --- PANTALLA DASHBOARD ---
-                    case 'dashboard':
+                    // DASHBOARD
+                    case 'dashboard': {
                         pageTitle.textContent = 'Dashboard General';
                         const resDash = await fetch('backend.php?action=get_dashboard');
                         const dataDash = await resDash.json();
@@ -171,10 +189,17 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>`;
                         break;
+                    }
 
-                    // --- PANTALLA POS ---
-                    case 'pos':
+                    // POS
+                    case 'pos': {
                         pageTitle.textContent = 'Punto de Venta';
+
+                        const storedUser = sessionStorage.getItem('usuario_actual');
+                        const uLocal = usuarioActual || (storedUser ? JSON.parse(storedUser) : null);
+                        const rolLocal = (uLocal && uLocal.rol ? uLocal.rol : '').toUpperCase();
+                        const esCliente = rolLocal === 'CLIENTE';
+
                         const resProd = await fetch('backend.php?action=get_productos');
                         const productos = await resProd.json();
                         
@@ -185,6 +210,23 @@ document.addEventListener('DOMContentLoaded', function() {
                             });
                         } else {
                             productosHTML = '<div class="col-12 text-center text-muted">No hay productos activos</div>';
+                        }
+
+                        // Si es CAJERO/ADMIN, intentar cargar primer pedido pendiente al carrito
+                        if (!esCliente) {
+                            const resPed = await fetch('backend.php?action=get_pedidos');
+                            const pedidos = await resPed.json();
+                            if (pedidos.length > 0 && pedidos[0].detalle) {
+                                const p0 = pedidos[0];
+                                try {
+                                    carritoPOS = JSON.parse(p0.detalle) || [];
+                                    metodoPago = p0.metodo_pago || 'Efectivo';
+                                } catch(e) {
+                                    carritoPOS = [];
+                                }
+                            } else {
+                                carritoPOS = [];
+                            }
                         }
 
                         htmlContent = `
@@ -216,22 +258,26 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <span id="pos-total">S/ 0.00</span>
                                         </div>
 
+                                        ${esCliente ? `
                                         <div class="btn-group w-100 mt-3" role="group">
                                             <button type="button" class="btn btn-primary btn-sm active" onclick="seleccionarPago('Efectivo', this)">Efectivo</button>
                                             <button type="button" class="btn btn-outline-primary btn-sm" onclick="seleccionarPago('Tarjeta', this)">Tarjeta</button>
                                             <button type="button" class="btn btn-outline-primary btn-sm" onclick="seleccionarPago('Yape', this)">Yape</button>
-                                        </div>
+                                        </div>` : ''}
 
-                                        <button class="btn btn-primary w-100 mt-3" onclick="realizarVenta()">REGISTRAR VENTA</button>
+                                        <button class="btn btn-primary w-100 mt-3" onclick="realizarVenta()">
+                                            ${esCliente ? 'ENVIAR PEDIDO' : 'IMPRIMIR BOLETA'}
+                                        </button>
                                         <button class="btn btn-outline-danger w-100 mt-2" onclick="cancelarCarrito()">CANCELAR</button>
                                     </div>
                                 </div>
                             </div>
                         </div>`;
                         break;
+                    }
 
-                    // --- PANTALLA USUARIOS ---
-                    case 'usuarios':
+                    // USUARIOS
+                    case 'usuarios': {
                         pageTitle.textContent = 'Gestión de Usuarios';
                         const resUser = await fetch('backend.php?action=get_usuarios');
                         const listUsers = await resUser.json();
@@ -253,9 +299,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>`;
                         break;
+                    }
                     
-                    // --- PANTALLA CLIENTES ---
-                    case 'clientes':
+                    // CLIENTES
+                    case 'clientes': {
                         pageTitle.textContent = 'Gestión de Clientes';
                         const resCli = await fetch('backend.php?action=get_clientes');
                         const listCli = await resCli.json();
@@ -267,6 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         htmlContent = `<div class="card shadow-sm border-0"><div class="card-body p-0 table-responsive"><table class="table table-hover align-middle mb-0"><thead class="bg-light"><tr><th class="ps-4">ID</th><th>Nombre</th><th>Teléfono</th><th>Dirección</th></tr></thead><tbody>${htmlCli}</tbody></table></div></div>`;
                         break;
+                    }
                 }
             } catch (error) {
                 console.error("Error cargando pantalla:", error);
@@ -276,13 +324,14 @@ document.addEventListener('DOMContentLoaded', function() {
             contenidoPrincipal.innerHTML = htmlContent;
             contenidoPrincipal.style.opacity = '1';
             
-            // Si estamos en POS y hay cosas en carrito, restaurar vista
-            if(screenName === 'pos' && carritoPOS.length > 0) actualizarVistaCarrito();
+            if(screenName === 'pos') {
+                actualizarVistaCarrito();
+            }
 
         }, 150);
     };
 
-    // --- FUNCIONES DEL POS (GLOBALES) ---
+    // --- FUNCIONES POS ---
     window.renderProductoCard = function(id, nombre, precio) {
         return `
         <div class="col-md-4 col-sm-6">
@@ -298,7 +347,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.agregarAlCarrito = function(id, nombre, precio) {
-        // Si el producto ya existe en el carrito, incrementar cantidad
         const existente = carritoPOS.find(p => p.id === id);
         if (existente) {
             existente.cantidad += 1;
@@ -309,16 +357,18 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.actualizarVistaCarrito = function() {
-        const divCarrito = document.getElementById('pos-carrito-body');
+        const divCarrito   = document.getElementById('pos-carrito-body');
         const spanSubtotal = document.getElementById('pos-subtotal');
-        const spanIgv = document.getElementById('pos-igv');
-        const spanTotal = document.getElementById('pos-total');
+        const spanIgv      = document.getElementById('pos-igv');
+        const spanTotal    = document.getElementById('pos-total');
         
+        if (!divCarrito) return;
+
         if (carritoPOS.length === 0) {
             divCarrito.innerHTML = `<div class="text-center text-muted py-5"><i class="bi bi-cart-x display-4"></i><p class="mt-2">Carrito vacío</p></div>`;
             if(spanSubtotal) spanSubtotal.textContent = 'S/ 0.00';
-            if(spanIgv) spanIgv.textContent = 'S/ 0.00';
-            if(spanTotal) spanTotal.textContent = 'S/ 0.00';
+            if(spanIgv)      spanIgv.textContent      = 'S/ 0.00';
+            if(spanTotal)    spanTotal.textContent    = 'S/ 0.00';
             return;
         }
 
@@ -345,8 +395,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const igv = subtotal * 0.18;
         const total = subtotal + igv;
         if (spanSubtotal) spanSubtotal.textContent = 'S/ ' + subtotal.toFixed(2);
-        if (spanIgv) spanIgv.textContent = 'S/ ' + igv.toFixed(2);
-        if (spanTotal) spanTotal.textContent = 'S/ ' + total.toFixed(2);
+        if (spanIgv)      spanIgv.textContent      = 'S/ ' + igv.toFixed(2);
+        if (spanTotal)    spanTotal.textContent    = 'S/ ' + total.toFixed(2);
     };
 
     window.eliminarDelCarrito = function(index) {
@@ -371,13 +421,47 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.classList.add('btn-primary', 'active');
     };
 
+    // Registrar venta o enviar pedido
     window.realizarVenta = function() {
         if(carritoPOS.length === 0) return alert("El carrito está vacío");
 
-        const subtotal = carritoPOS.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
-        const igv = subtotal * 0.18;
+        const subtotal   = carritoPOS.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+        const igv        = subtotal * 0.18;
         const totalVenta = subtotal + igv;
-        
+
+        const stored = sessionStorage.getItem('usuario_actual');
+        const u      = usuarioActual || (stored ? JSON.parse(stored) : null);
+        const rol    = (u && u.rol ? u.rol : '').toUpperCase();
+
+        // CLIENTE: solo envía pedido
+        if (rol === 'CLIENTE') {
+            const mesa = prompt('Ingrese la mesa del cliente', 'MESA 1') || 'SIN MESA';
+            fetch('backend.php?action=guardar_pedido', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    total: totalVenta,
+                    mesa: mesa,
+                    id_cliente: u && u.id_usuario ? u.id_usuario : 1,
+                    metodo_pago: metodoPago,
+                    productos: carritoPOS
+                })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    alert('¡Pedido enviado al cajero!');
+                    carritoPOS = [];
+                    actualizarVistaCarrito();
+                } else {
+                    alert('Error al guardar pedido: ' + (data.error || ''));
+                }
+            })
+            .catch(() => alert('Error de conexión al enviar pedido'));
+            return;
+        }
+
+        // CAJERO / ADMIN: registra venta y genera boleta
         fetch('backend.php?action=guardar_venta', {
             method: 'POST',
             body: JSON.stringify({ total: totalVenta, productos: carritoPOS, metodo_pago: metodoPago }),
@@ -388,7 +472,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if(data.success) {
                 alert("¡Venta registrada con éxito!");
 
-                // Generar boleta imprimible básica
                 const win = window.open('', '_blank');
                 let html = `<!DOCTYPE html><html><head><title>Comprobante de Venta</title>
                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -440,9 +523,9 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(err => alert("Error de conexión al guardar venta"));
     };
 
+    // solo debug
     fetch('backend.php?action=get_clientes')
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.error('Error:', err));
-
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.error('Error:', err));
 });
